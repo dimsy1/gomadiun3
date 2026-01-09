@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/static/css/main.aace148e.css",
+    "main.js": "/static/js/main.4294e041.js",
+    "static/media/wisatahero2.jpg": "/static/media/wisatahero2.9a9f7ec1d3709e48995d.jpg",
+    "static/media/background3.jpg": "/static/media/background3.cda2de563f38e087a4e9.jpg",
+    "static/media/markerkuliner.png": "/static/media/markerkuliner.8c17a7427744b5e64237.png",
+    "static/media/markerdesa.png": "/static/media/markerdesa.c8a50cfa7809f8bb8abf.png",
+    "static/media/image_notfound.png": "/static/media/image_notfound.e058e4fb6c232974c21e.png",
+    "static/media/logo_2.png": "/static/media/logo_2.b1db250a30dcf9fbbee3.png",
+    "static/media/markerwisata1.png": "/static/media/markerwisata1.488d77ac0a2b05d1bbd5.png",
+    "static/media/markerwisata4.png": "/static/media/markerwisata4.c20bcdcd0fcdbce7faa8.png",
+    "static/media/markerwisata2.png": "/static/media/markerwisata2.9af26546ce2605b5b5fa.png",
+    "static/media/markerpenginapan.png": "/static/media/markerpenginapan.d6e139d9fd66f9fff137.png",
+    "static/media/markerwisata3.png": "/static/media/markerwisata3.1e1d2ff1bdfe0c9e0328.png",
+    "static/media/topkuliner.png": "/static/media/topkuliner.8e9793157df046c4f734.png",
+    "static/media/toppenginapan.png": "/static/media/toppenginapan.c7a3e4599264fefc221b.png",
+    "static/media/logo_1.png": "/static/media/logo_1.35502510af03fe98b7c3.png",
+    "static/media/toppaket.png": "/static/media/toppaket.7fd1fc4458671a7db3dc.png",
+    "static/media/restaurant.png": "/static/media/restaurant.2ccafa01bbdf67894d79.png",
+    "static/media/wifi.png": "/static/media/wifi.828f9b47904adddb6259.png",
+    "static/media/swim.png": "/static/media/swim.a36459d3bab7a4bf6f6b.png",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "index.html": "/index.html",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
+    "main.aace148e.css.map": "/static/css/main.aace148e.css.map",
+    "main.4294e041.js.map": "/static/js/main.4294e041.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aace148e.css",
+    "static/js/main.4294e041.js"
+  ]
+}

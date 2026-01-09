@@ -1,0 +1,38 @@
+#admin.gomadiun
+# dependencies
+admin.gomadiun/node_modules
+admin.gomadiun/.pnp
+admin.gomadiun/.pnp.js
+admin.gomadiun/.env
+
+# testing
+admin.gomadiun/coverage
+
+# production
+admin.gomadiun/build
+
+# misc
+admin.gomadiun/.DS_Store
+admin.gomadiun/.env.local
+admin.gomadiun/.env.development.local
+admin.gomadiun/.env.test.local
+admin.gomadiun/.env.production.local
+
+admin.gomadiun/npm-debug.log*
+admin.gomadiun/yarn-debug.log*
+admin.gomadiun/yarn-error.log*
+
+
+#api.gomadiun
+api.gomadiun/.env
+api.gomadiun/node_modules
+
+
+#user.gomadiun
+user.gomadiun/node_modules/
+user.gomadiun/node_modules/*
+
+user.gomadiun/.vscode/
+user.gomadiun/.vscode/*
+
+user.gomadiun/.env

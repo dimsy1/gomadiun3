@@ -1,0 +1,3594 @@
+
+@keyframes fadeAnimasi {
+    from {
+        transform: translateY(-20px);
+        opacity: 0; /* Awal transparan */
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1; /* Akhir solid */
+    }
+}
+
+@keyframes fadeAnimasiUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0; /* Awal transparan */
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1; /* Akhir solid */
+    }
+}
+
+@keyframes AnimasiUp {
+     to {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.1);
+    }
+    60% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes bounceOut {
+    0% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes bounceIncard {
+    0% {
+        transform: scale(0);
+        opacity: 0; /* Awal transparan */
+    }
+    70% {
+        transform: scale(1);
+        opacity: 1; /* Awal transparan */
+    }
+    100% {
+        opacity: 1; /* Akhir solid */
+    }
+}
+
+
+/* Header HERO */
+.Leanding-header{
+  font-family: "Poppins";
+  height: 100vh;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+     background-size: cover;
+  background-position: center;
+}
+.content-header {
+    text-align: center;
+    color: white;
+    max-width: 1000px;
+    margin: 0 20px -60px;
+    padding: 20px;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 30px;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+
+  .hero-info {
+    margin-top: 20px;
+  }
+  
+  /* FORM WRAPPER - flex row */
+  .form-header .search-wrapper {
+    font-family: "Poppins";
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    border-radius: 50px;
+    padding: 10px 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 850px;
+    height: 70px;
+    margin: 0 auto;
+    gap: 15px;
+  }
+  
+  /* Input Search Box */
+  .search-box {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  
+  .search-icon {
+    color: gray;
+    margin-right: 10px;
+    font-size: 1rem;
+    margin-left: 15px;
+  }
+  
+  .input-budget {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    width: 100%;
+    padding: 10px;
+    border-radius: 50px;
+  } 
+
+    .btn-search-budget {
+  align-items: center;
+  background: #06647B;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 30px;
+  cursor: pointer;
+  height: 55px;
+  width: 90px;
+}
+
+  /* Guest Counter Box */
+  .guest-counter {
+    display: flex;
+    align-items: center;
+    background: #06647B;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 30px;
+    height: 55px;
+    width: 130px;
+  }
+  .guest-counter span {
+font-size: 15px;
+text-align: center;
+margin-left: 5px;
+  }
+  
+  .counter-buttons {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+  }
+  
+  .counter-buttons button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: white;
+    font-size: 1rem;
+    margin: -8px -10px;
+  }
+  
+  .counter-buttons button:hover {
+    color: #cce0ff;
+  }
+/* .footer-header{
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+} */
+
+.input-budget:focus{
+	outline: none;
+}
+
+@media (max-width: 768px) {
+  .Leanding-header {
+    height: 800px;
+    padding: 60px 20px 40px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .content-header {
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  .form-header .search-wrapper {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+    gap: 10px;
+    border-radius: 20px;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .input-budget {
+    font-size: 0.95rem;
+    padding: 8px 12px;
+  }
+
+  .guest-counter {
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px 15px;
+    height: auto;
+  }
+
+  .guest-counter span {
+    font-size: 0.95rem;
+  }
+
+  .counter-buttons {
+    flex-direction: row;
+    gap: 10px;
+    margin-left: 0;
+  }
+
+  .counter-buttons button {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+
+  .hero-info {
+    font-size: 0.85rem;
+    margin-top: 15px;
+  }
+}
+
+  /* ==================================================== */
+
+/* SECTION DESA WISATA CSS */
+.landing-desa-section {
+  padding: 50px 45px;
+  background: #ffffff;
+  font-family: "Poppins";
+}
+
+.desa-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.desa-header h2 {
+  color: #10182F;
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 40px;
+}
+
+.desa-header p {
+  margin-top: 4px;
+    color: #616161;
+}
+
+.lihat-semua-desa {
+  cursor: pointer;
+  color: #10182F;
+  font-weight: bold;
+  transition: color 0.3s;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.lihat-semua-desa:hover {
+  color: #06647B;
+}
+
+.lihat-semua-desa i {
+  margin-left: 5px;
+}
+
+.slider-item {
+  padding: 0 8px;
+}
+
+.desa-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  height: 100%;
+  width: 95%;
+}
+
+.desa-image {
+  width: 100%;
+  height: 430px;
+  object-fit: cover;
+  display: block;
+}
+
+.desa-image img {
+  object-fit: cover;
+}
+
+.desa-card-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0));
+  color: white;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.desa-info h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.desa-info p {
+  font-size: 12px;
+  color: #ddd;
+  margin: 4px 0 0 0;
+}
+
+.lihat-detail-desa {
+  background: #06647B;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.lihat-detail-btn:hover {
+  background: #31478c;
+}
+
+/* Dot custom */
+.slick-dots {
+  bottom: -30px;
+}
+
+.slick-dots li button:before {
+  font-size: 9px;
+  color: #666;
+  margin: 0 -5px;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #06647B;
+}
+
+@media (max-width: 768px) {
+  .landing-desa-section {
+    padding: 25px 15px;
+  }
+
+  .desa-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .desa-header h2 {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  .desa-header p {
+    font-size: 14px;
+  }
+
+  .slider-item {
+    padding: 0 5px;
+  }
+
+  .desa-card {
+    width: 100%;
+    height: auto;
+  }
+
+  .desa-image {
+    height: 250px;
+  }
+
+  .desa-info h3 {
+    font-size: 14px;
+  }
+
+  .desa-info p {
+    font-size: 11px;
+  }
+
+  .lihat-detail-desa {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+}
+ /* ============================================================ */
+  
+
+/* ============= CSS UNTUK FILE contentBerita.js ============= */
+.berita-section {
+  margin: 40px 0;
+  padding: 0 50px;
+  font-family: "Poppins";
+}
+
+.berita-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.berita-title h2 {
+  font-size: 25px;
+  font-weight: 700;
+  color: #10182F;
+}
+
+.berita-title p {
+  font-size: 16px;
+  color: #616161;
+  margin-top: 4px;
+  font-weight: 300;
+}
+
+.lihat-semua {
+  cursor: pointer;
+  font-size: 14px;
+  color: #0f46a0;
+  font-weight: 500;
+}
+
+.berita-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.berita-card {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Card besar */
+.berita-card-large {
+  height: 450px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+/* Card kecil */
+.berita-card-small-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.berita-card-small {
+  height: 217px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Gambar berita */
+.berita-card-large img,
+.berita-card-small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay text */
+.berita-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 16px;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  /* text-shadow: 0 1px 4px rgba(0, 0, 0, 1); */
+  background: linear-gradient(to top, rgba(0, 0, 0, 1.5), transparent);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.berita-overlay h3 {
+  color: white;
+  font-size: 15px;
+  font-weight: 550;
+}
+.berita-overlay h4 {
+  color: #EB891C;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .berita-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .berita-card-small-container {
+    grid-template-columns: 1fr;
+  }
+
+  .berita-card-large {
+    min-height: 200px;
+  }
+
+  .berita-card-small {
+    height: 120px;
+  }
+
+  .berita-title h2 {
+  font-size: 20px;
+}
+
+.berita-title p {
+  font-size: 14px;
+}
+}
+/* =============================================== */
+
+/* SECTION WISATA CSS */
+
+.cover-wisata {
+    position: relative;
+    padding: 0 2.5%;
+    box-sizing: border-box;
+    font-family: "Poppins";
+    background-color: #F2F8FF;
+}
+.card-wisata {
+    max-width: 31.8%;
+    width: 449px;
+    height: 400px;
+    max-height: 70%;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin: 0 8px;
+    transition: transform 0.3s ease;
+    scroll-snap-align: start;
+    cursor: pointer;
+    flex: 0 0 auto;
+    margin-bottom: 40px;
+  }
+
+  .scroll-container {
+    overflow-x: hidden;
+    padding: 0 20px;
+    max-width: 100%;
+  }
+
+
+  .wisata-title {
+    color: #10182F;
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 40px;
+  }
+  
+  .wisata-sub-title {
+    margin-top: 4px;
+    color: #616161;
+  }
+  
+  .card-wisata:hover {
+    transform: translateY(-5px);
+   
+  }
+  
+  .card-image {
+    position: relative;
+    height: 315px;
+    overflow: hidden;
+  }
+  
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+    color: white;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+
+  
+  .description-wisata {
+    font-size: 13px;
+    font-style: italic;
+    line-height: 1.4;
+  }
+  
+  .card-footer {
+    background-color: #06647B;
+    color: white;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: right;
+  }
+  
+  .harga-info small {
+    font-size: 11px;
+    /* opacity: 0.8; */
+   
+  }
+  
+  .kategori-info small {
+    font-size: 11px;
+    /* opacity: 0.8; */
+    text-align: right;
+  }
+  
+  .harga-wisata {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+  
+  .nama-wisata {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 5px;
+  }
+
+  .scroll-images {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding: 20px 0;
+  }
+  
+  .scroll-images::-webkit-scrollbar {
+    display: none; /* Hilangkan scrollbar untuk tampilan bersih */
+  }
+  
+  
+/* .cover {
+    position: relative;
+    padding: 0 10%;
+    box-sizing: border-box;
+} */
+
+.left-arrow {
+    height: 50px;
+    width: 50px;
+    background-color: #fff;
+    color: #06647B;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 25px;
+    border-radius: 50%;
+    position: absolute;
+    left: 2%;
+    top: 55%;
+    transform: translateY(-50%);
+    -webkit-box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);
+    box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);
+    z-index: 1;
+}
+
+.right-arrow {
+    height: 50px;
+    width: 50px;
+    background-color: #fff;
+    color: #06647B;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 25px;
+    position: absolute;
+    border-radius: 50%;
+    right: 2%;
+    top: 55%;
+    transform: translateY(-50%);
+    -webkit-box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);
+    box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);
+    z-index: 1;
+}
+
+/* Responsive layout untuk wisata */
+
+@media (max-width: 1024px) {
+  .card-wisata {
+    max-width: 48%; /* Tampilkan 2 card per baris */
+  }
+}
+
+@media (max-width: 768px) {
+  .card-wisata {
+    max-width: 100%;
+    width: 100%;
+    
+  }
+   .wisata-title {
+    font-size: 20px;
+    margin-top: 30px;
+    padding-left: 10px;
+  }
+
+  .wisata-sub-title {
+    font-size: 14px;
+    padding-left: 10px;
+  }
+
+  .scroll-images {
+    gap: 12px;
+  }
+
+  .left-arrow,
+  .right-arrow {
+    display: none;
+  }
+
+  .card-footer {
+    flex-direction: row; /* Tetap horizontal */
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+    padding: 12px;
+  }
+
+  .harga-info small,
+  .kategori-info small {
+    font-size: 10px;
+  }
+
+  .harga-wisata,
+  .nama-wisata {
+    font-size: 14px;
+    word-break: break-word;
+  }
+
+  .description-wisata {
+    font-size: 12px;
+  }
+
+  .harga-info, .kategori-info {
+    width: 48%;
+  }
+
+  .kategori-info {
+    text-align: right;
+  }
+}
+/* ======================================================== */
+
+
+
+
+
+
+
+/* .scroll-images {
+    position: relative;
+    width: 100%;
+    padding: 40px 0px;
+    height: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+} */
+
+/* .scroll-images-kuliner {
+    position: relative;
+    width: 100%;
+    padding: 40px 0px;
+    height: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.scroll-images-penginapan {
+    position: relative;
+    width: 100%;
+    padding: 40px 0px;
+    height: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+} */
+
+/* .child {
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    align-items: center;
+    min-width: 288px;
+    height: 480px;
+    margin: 0px 8px;
+    border: 1px solid #f1f1f1;
+    overflow: hidden;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);
+    box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);
+    transition: transform 0.5s ease, margin-top 0.5s ease;
+}
+
+.child.animasi {
+    animation: bounceIncard 1s ease forwards;
+}
+
+.child:hover {
+    transform: translateY(-1px);
+    margin-top: -10px;
+    cursor: pointer;
+}
+
+.child .cover-img {
+    width: 100%;
+    height: 288px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.child .text-child{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 125px;
+    padding: 15px 15px 15px 15px;
+    box-sizing: border-box;
+    justify-content: space-between;
+} */
+
+
+/* SECTION KULINER CSS */
+.kuliner-section {
+  font-family: "Poppins";
+  width: 100%;
+  padding: 40px;
+  height: 600px;
+}
+.kuliner-section .swiper-pagination {
+  position: relative;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Bullet (dot) styling */
+.swiper-pagination-bullet {
+  background: #ccc;
+  opacity: 1;
+  margin: 0 5px !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #06647B;
+}
+
+
+.kuliner-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* top-align biar tulisan 'Lihat semua' sejajar dengan h2 */
+  margin-bottom: 20px;
+}
+
+.kuliner-title h2 {
+  font-size: 25px;
+  font-weight: bold;
+  color: #313131;
+}
+.kuliner-title p {
+  font-size: 16px;
+  color: #616161;
+  margin-bottom: -10px;
+}
+
+.lihat-semua {
+  cursor: pointer;
+  color: #313131;
+  font-weight: bold;
+  transition: color 0.3s;
+  margin-top: 10px;
+}
+
+.lihat-semua:hover {
+  color: #06647B;
+}
+.lihat-semua i {
+  margin-left: 5px;
+}
+
+.kuliner-slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.kuliner-scroll-container {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem 0;
+}
+.desawisata-scroll-container {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem 0;
+}
+
+.kuliner-card {
+  max-width: 98%;
+  width: 449px;
+  height: 400px;
+  max-height: 70%;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0 5px; /* jarak antar card */
+}
+
+.kuliner-slider-container {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.kuliner-slider-track {
+  display: flex;
+  justify-content: center; /* penting: rata tengah */
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+
+.kuliner-card:hover {
+  transform: translateY(-5px);
+}
+
+.kuliner-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.kuliner-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kuliner-info {
+  padding: 0.75rem 1rem;
+  color: #10182F;
+}
+
+.kuliner-tags {
+  display: flex;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.kategori {
+  background: #f0f0f0;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.status.buka {
+  color: green;
+}
+
+.status.tutup {
+  color: red;
+}
+
+.kuliner-nama {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+.overlay-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 14px;
+  background: rgba(0, 0, 0, 0.6); /* black with opacity */
+  color: #fff;
+}
+
+.overlay-text .status {
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.overlay-text .status.buka {
+  color: #00ff66;
+}
+
+.overlay-text .status.tutup {
+  color: #ff4d4d;
+}
+
+.overlay-text .kuliner-nama {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+}
+.slider-btn {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  background-color: #ffffffcc;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.slider-btn.left {
+  left: 0;
+}
+
+.slider-btn.right {
+  right: 0;
+}
+
+.kuliner-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.btn-lihat-semua {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background 0.3s ease;
+}
+
+.btn-lihat-semua:hover {
+  background: #0056b3;
+}
+
+.swiper-pagination-bullet {
+  background: #ccc;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background: white;
+}
+
+
+@keyframes fadeUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .kuliner-slider-wrapper {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .kuliner-scroll-container {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .kuliner-card {
+    min-width: 80%;
+    width: 100%;
+    height: 300px;
+    scroll-snap-align: start;
+  }
+
+  .kuliner-img-wrapper {
+    height: 100%;
+  }
+
+  .kuliner-img-wrapper img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .kuliner-title h2 {
+    font-size: 20px;
+  }
+
+  .kuliner-title p {
+    font-size: 14px;
+  }
+}
+/* ================================================================== */
+
+/* .child-kuliner {
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    align-items: center;
+    width: 288px;
+    height: 370px;
+    margin: 0px 8px;
+    border: 1px solid #f1f1f1;
+    overflow: hidden;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);
+    box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);
+    transition: transform 0.5s ease, margin-top 0.5s ease;
+}
+
+.child-kuliner.animasi {
+    animation: bounceIncard 1s ease forwards;
+}
+
+.child-kuliner:hover {
+    transform: translateY(-1px);
+    margin-top: -10px;
+    cursor: pointer;
+} */
+
+/* .child-kuliner .cover-img {
+    width: 100%;
+    height: 288px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.child-kuliner .text-child{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 120px;
+    padding: 15px 15px 15px 15px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+
+.cover-kuliner-page {
+    position: relative;
+    padding: 0px 40px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    min-height: 60vh;
+}
+
+.cover-kuliner-page-notfound {
+    width: 745px;
+    min-height: 60vh;
+}
+
+
+.child-cardkuliner {
+    opacity: 0;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    align-items: center;
+    width: 745px;
+    height: 350px;
+    margin: 8px 0px;
+    border: 1px solid #f1f1f1;
+    overflow: hidden;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);
+    box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);
+    transition: transform 0.5s ease, margin-right 0.5s ease, margin-left 0.5s ease;
+
+}
+.child-cardkuliner-loading {
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    align-items: center;
+    width: 745px;
+    height: 200px;
+    margin: 8px 0px;
+    overflow: hidden;
+    box-sizing: border-box;
+    justify-content: center;
+
+}
+
+.child-cardkuliner.animasi {
+    animation: bounceIncard 1s ease forwards;
+}
+
+.child-cardkuliner:hover {
+    transform: translateX(-1px);
+    margin-right: -10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.child-cardkuliner .cover-img {
+    width: 200px;
+    height: 200px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: #00A2AD;
+}
+
+.child-cardkuliner .text-child{
+    width: 80%;
+    flex-direction: column;
+    height: 150px;
+    padding: 15px 15px 15px 15px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    
+} */
+
+/* SECTION ALL KULINER CSS */
+
+.hero-kuliner {
+  width: 100%;
+  height: 380px;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  text-align: center;
+  padding: 0 20px; /* Add padding if needed */
+  font-family: "Poppins";
+}
+.hero-kuliner::before{
+    content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 380px;
+ background: linear-gradient(
+  to right bottom,
+  rgba(1, 92, 145, 0.7),   /* #06647B */
+  rgba(2, 83, 133, 0.7),   /* #025385 */
+  rgba(3, 74, 120, 0.7),   /* #034A78 */
+  rgba(4, 66, 108, 0.7),   /* #04426C */
+  rgba(5, 58, 95, 0.7),    /* #053A5F */
+  rgba(6, 50, 82, 0.7),    /* #063252 */
+  rgba(7, 42, 69, 0.7),    /* #072A45 */
+  rgba(8, 34, 56, 0.7),    /* #082238 */
+  rgba(9, 26, 43, 0.7),    /* #091A2B */
+  rgba(10, 18, 30, 0.7),   /* #0A121E */
+  rgba(11, 10, 20, 0.7),   /* #0B0A14 */
+  rgba(0, 0, 10, 0.7)      /* #00000A */
+);
+
+  }
+
+  .hero-kuliner-overlay {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    max-width: 80%;
+  }
+
+
+.hero-kuliner-title h1 {
+  font-size: 2.5rem; /* Adjust font size as needed */
+  margin-bottom: 16px; /* Add spacing between title and subtitle */
+  color: #ffffff; /* Optionally, add a color for the subtitle */
+  margin-top: 40px;
+}
+
+.hero-kuliner-subtitle p {
+  font-size: 15px; /* Adjust font size as needed */
+  color: #ffffff; /* Optionally, add a color for the subtitle */
+}
+
+
+.kuliner-slider-container {
+  height: calc(100vh - 150px); /* atur tinggi supaya search tetap kelihatan */
+  overflow-y: auto;
+  padding-right: 10px;
+  margin-bottom: 0px;
+}
+
+.kuliner-card-all {
+  width: 330px;
+  height: 350px;
+  /* max-height: 70%; */
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0px;
+
+}
+
+.kuliner-slider-track.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 2 kolom */
+  gap: 20px; /* jarak antar card */
+  padding: 0px;
+  margin-bottom: 40px;
+}
+
+/* Biar scroll-nya halus */
+.kuliner-slider-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.kuliner-slider-container::-webkit-scrollbar-thumb {
+  /* background-color: #ccc; */
+  border-radius: 8px;
+}
+
+.sidebar-kuliner-all {
+  width: 350px;
+  position: sticky;
+  top: 100px;
+  align-self: flex-start;
+  background: #fff;
+  height: fit-content;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 20px;
+  margin-right: 30px;
+  margin-left: 30px;
+  padding: 2rem;
+  font-family: "Poppins";
+}
+
+.pagination-button {
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  background-color: white;
+  color: #333;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination-button.active {
+  background-color: white;
+  color: white;
+  border-color: white;
+}
+
+
+@media (max-width: 768px) {
+  .sidebar-kuliner-all {
+    width: 85%;
+    align-items: center;
+    /* flex-direction: column !important; */
+    position: static;
+    /* margin: 20px 0 30px 0; */
+    margin-bottom: 40px;
+    margin-top: 20px;
+  }
+
+  .kuliner .d-flex.flex-row {
+    flex-direction: column !important;
+    align-items: center;
+  }
+  .kuliner-slider-track.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 0px;
+}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .kuliner-layout-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar-kuliner-all {
+    width: 80%; /* Lebar penuh agar terlihat seperti berada di atas */
+    position: static;
+    margin: 0 auto 20px auto;
+  }
+   .kuliner .d-flex.flex-row {
+    flex-direction: column !important;
+    align-items: center;
+  }
+
+  .kuliner-slider-track.grid-layout {
+    grid-template-columns: repeat(2, 1fr); /* Dua kolom untuk tablet */
+    gap: 20px;
+  }
+}
+
+
+
+
+
+
+/* SECTION ALL PENGINAPAN CSS */
+.penginapan-cover-page {
+  font-family: "Poppins", sans-serif;
+  width: 180%;
+  max-width: 1200px;
+  margin: 40px auto 50px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  /* background-color: #00ff66; */
+}
+
+.penginapan-loading-container,
+.penginapan-notfound-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.penginapan-loading-animation,
+.penginapan-notfound-animation {
+  width: 200px;
+  height: 200px;
+}
+
+.penginapan-notfound-text {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #666;
+}
+
+.penginapan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+  gap: 20px;
+  /* grid-template-columns: repeat(2, 1fr); */
+}
+
+.penginapan-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s forwards;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  
+}
+
+.penginapan-card.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.penginapan-card-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.penginapan-card-content {
+  padding: 16px;
+}
+
+.penginapan-card-location {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.penginapan-location-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+}
+
+.penginapan-location-text {
+  font-size: 14px;
+  color: #777;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.penginapan-card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 8px 0;
+  color: #10182F;
+   font-family: "Poppins";
+}
+
+.penginapan-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.penginapan-card-category {
+  font-size: 14px;
+  background: #e1ecf9;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+  color: #06647B;
+}
+
+.penginapan-card-price {
+  text-align: right;
+}
+
+.penginapan-price-label {
+  display: block;
+  font-size: 12px;
+  color: #888;
+}
+
+.penginapan-price-value {
+  font-size: 16px;
+  font-weight: bold;
+  color: #06647B;
+}
+.penginapan-stars {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+}
+
+.penginapan-star {
+  color: #FFC107; /* warna bintang kuning */
+  font-size: 14px;
+  margin-left: 2px;
+}
+
+.hero-penginapan {
+  width: 100%;
+  height: 380px;
+background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  text-align: center;
+  padding: 0 20px; /* Add padding if needed */
+  font-family: "Poppins";
+}
+
+.hero-penginapan::before{
+    content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 380px;
+  background: linear-gradient(
+  to right bottom,
+  rgba(1, 92, 145, 0.7),   /* #06647B */
+  rgba(2, 83, 133, 0.7),   /* #025385 */
+  rgba(3, 74, 120, 0.7),   /* #034A78 */
+  rgba(4, 66, 108, 0.7),   /* #04426C */
+  rgba(5, 58, 95, 0.7),    /* #053A5F */
+  rgba(6, 50, 82, 0.7),    /* #063252 */
+  rgba(7, 42, 69, 0.7),    /* #072A45 */
+  rgba(8, 34, 56, 0.7),    /* #082238 */
+  rgba(9, 26, 43, 0.7),    /* #091A2B */
+  rgba(10, 18, 30, 0.7),   /* #0A121E */
+  rgba(11, 10, 20, 0.7),   /* #0B0A14 */
+  rgba(0, 0, 10, 0.7)      /* #00000A */
+);
+
+  }
+
+  .hero-penginapan-overlay {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    max-width: 80%;
+  }
+
+
+.hero-penginapan-title h1 {
+  font-size: 2.5rem; /* Adjust font size as needed */
+  margin-bottom: 16px; /* Add spacing between title and subtitle */
+  color: #ffffff; /* Optionally, add a color for the subtitle */
+  margin-top: 40px;
+}
+
+.hero-penginapan-subtitle p {
+  font-size: 15px; /* Adjust font size as needed */
+  color: #ffffff; /* Optionally, add a color for the subtitle */
+}
+
+.content-container {
+  display: flex;
+  margin-top: 2rem;
+  padding: 0 3%;
+}
+
+/* Sidebar */
+.sidebar-penginapan-all {
+  width: 300px;
+  position: sticky;
+  top: 100px;
+  align-self: flex-start;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  height: fit-content;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  font-family: "Poppins";
+  margin-bottom: 50px;
+  margin-top: 40px;
+}
+
+.search-section input {
+  width: 100%;
+}
+
+.filter-group {
+  margin-top: 1rem;
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  margin-left: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+
+/* Loading animation */
+.loading-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.loading-item {
+  width: 100%;
+  max-width: 300px;
+}
+
+@media (max-width: 768px) {
+  .penginapan-grid {
+    grid-template-columns: 1fr; /* 1 kolom kalau di mobile */
+  }
+}
+
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column;
+  }
+
+  .sidebar-penginapan-all {
+    width: 100%;
+    position: relative;
+    top: 0;
+    margin-top: 0;
+    margin-bottom: 20px;
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+
+  .main-content {
+    grid-template-columns: 1fr;
+    margin-left: 0;
+    width: 100%;
+  }
+  .penginapan-cover-page {
+    width: 100%;
+  }
+}
+/* ========================================================== */
+
+/* CSS PENGINAPAN HALAMAN DESAWISATA */
+.penginapan-card-bottom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-family: "Poppins";
+}
+
+.penginapan-section {
+  font-family: "Poppins";
+  width: 100%;
+  padding: 40px;
+  height: auto;
+}
+.grid-penginapan-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 50px;
+
+}
+.penginapan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.penginapan-title h2 {
+  font-size: 25px;
+  font-weight: bold;
+  color: #313131;
+}
+.penginapan-title p {
+  font-size: 16px;
+  color: #616161;
+}
+
+.lihat-semua-penginapan {
+  cursor: pointer;
+  color: #313131;
+  font-weight: bold;
+  transition: color 0.3s;
+  margin-top: 10px;
+font-size: 14px;
+}
+
+.lihat-semua-penginapan :hover {
+  color: #06647B;
+}
+.lihat-semua-penginapan i {
+  margin-left: 5px;
+}
+.penginapan-section .swiper-pagination {
+  position: relative;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.swiper-pagination-bullet {
+  background: #ccc;
+  opacity: 1;
+  margin: 0 5px !important;
+}
+
+.swiper-pagination-bullet-active {
+ background: white;
+}
+
+
+
+@media (max-width: 768px) {
+  .grid-penginapan-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .penginapan-header {
+    flex-direction: column;
+    text-align: left;
+    justify-content: left;
+  }
+
+  .penginapan-title h2 {
+    font-size: 20px;
+  }
+
+  .penginapan-title p {
+    font-size: 14px;
+  }
+
+  .lihat-semua-penginapan {
+    font-size: 14px;
+    margin-left: -210px;
+  }
+
+  .swiper {
+    padding-bottom: 40px; /* extra space for dots */
+  }
+}
+
+
+
+
+
+
+/* Responsive */
+/* @media (max-width: 768px) {
+  .content-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    position: static;
+    margin-bottom: 20px;
+  }
+
+  .main-content {
+    grid-template-columns: 1fr;
+    margin-left: 0;
+  }
+  .penginapan-layout {
+    flex-direction: column;
+  }
+} */
+
+
+
+/* .child-cardPenginapan {
+    opacity: 0;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    align-items: center;
+    width: 745px;
+    height: 350px;
+    margin: 8px 0px;
+    border: 1px solid #f1f1f1;
+    overflow: hidden;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);
+    box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);
+    transition: transform 0.5s ease, margin-right 0.5s ease, margin-left 0.5s ease;
+
+}
+.child-cardPenginapan-loading {
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    align-items: center;
+    width: 745px;
+    height: 200px;
+    margin: 8px 0px;
+    overflow: hidden;
+    box-sizing: border-box;
+    justify-content: center;
+
+}
+
+.child-cardPenginapan.animasi {
+    animation: bounceIncard 1s ease forwards;
+}
+
+.child-cardPenginapan:hover {
+    transform: translateX(-1px);
+    margin-right: -10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.child-cardPenginapan .cover-img {
+    width: 200px;
+    height: 200px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: #00A2AD;
+}
+
+.child-cardPenginapan .text-child{
+    width: 80%;
+    flex-direction: column;
+    height: 150px;
+    padding: 1px 15px 1px 15px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    
+}
+
+.child-cardPenginapan .cover-img img{
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.child-penginapan {
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    align-items: center;
+    width: 288px;
+    height: 420px;
+    margin: 0px 8px;
+    border: 1px solid #f1f1f1;
+    overflow: hidden;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);
+    box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);
+    transition: transform 0.5s ease, margin-top 0.5s ease;
+}
+
+.child-penginapan.animasi {
+    animation: bounceIncard 1s ease forwards;
+}
+
+.child-penginapan:hover {
+    transform: translateY(-1px);
+    margin-top: -10px;
+    cursor: pointer;
+}
+
+.child-penginapan .cover-img {
+    width: 100%;
+    height: 288px; 
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.child-penginapan .text-child{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    padding: 15px 15px 15px 15px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.child-penginapan .cover-img img{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.scroll-images::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color: #aaa;
+}
+
+.scroll-images::-webkit-scrollbar-thumb {
+    background-color: black;
+} */
+
+
+/* Wisata */
+.cover {
+    position: relative;
+    padding: 0 2.5%;
+    box-sizing: border-box;
+}
+
+/* .scroll-paket {
+    position: relative;
+    width: 100%;
+    padding: 40px 0px;
+    height: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.child-paket {
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    align-items: center;
+    min-width: 288px;
+    height: 350px;
+    margin: 0px 8px;
+    border: 1px solid #f1f1f1;
+    overflow: hidden;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);
+    box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);
+    transition: transform 0.5s ease, margin-top 0.5s ease;
+}
+
+.child-paket.animasi {
+    animation: bounceIncard 1s ease forwards;
+}
+
+.child-paket:hover {
+    transform: translateY(-1px);
+    margin-top: -10px;
+    cursor: pointer;
+}
+
+.child-paket .text-child-paket{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    padding: 15px 15px 15px 15px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.child-paket .cover-img {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+
+
+.scroll-paket::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color: #aaa;
+}
+
+.scroll-paket::-webkit-scrollbar-thumb {
+    background-color: black;
+}
+
+
+@media (max-width: 1440px) {
+    .child, .child-paket{
+        min-width: 272px;
+    }
+    .child .cover-img{
+        max-height: 250px; 
+    }
+} */
+
+
+  
+/* REKOMENDASI WISATA KHUSUS */
+.cover-recomend {
+  padding: 20px 3%;
+  font-family: "Poppins";
+}
+.cover-recomended-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.recomended-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: #ff9800;
+  color: white;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.rekomendasi-card {
+  width: 450px;
+  height: 350px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.cover-paketwisata-recomend {
+    position: relative;
+    padding: 0 2.5%;
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+.rekomendasi-card-desawisata {
+  width: 750px !important;
+  height: 350px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #5B4EBD;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  animation: fadeInUp 0.5s ease forwards;
+    justify-content: space-between;
+}
+.rekomendasi-info-kiri {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0px;
+}
+
+.rekomendasi-image {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+}
+.rekomendasi-image-paketwisata {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+}
+
+.rekomendasi-info {
+  padding: 13px;
+  background-color: #06647B;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rekomendasi-info-desawisata {
+  padding: 13px;
+  background-color: #06647B;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+}
+
+.rekomendasi-kategori {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+.rekomendasi-nama {
+  font-size: 18px;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+.rekomendasi-harga {
+  font-size: 15px;
+}
+
+.lihat-detail-rekomendasi {
+  background-color: #ffffff;
+  color: #06647B;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.lihat-detail-btn:hover {
+  background-color: #e0e0e0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .rekomendasi-card-desawisata {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    height: auto;
+  }
+
+  .rekomendasi-image-paketwisata {
+    height: 220px;
+  }
+
+  .rekomendasi-info-desawisata {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    gap: 8px;
+  }
+
+  .lihat-detail-rekomendasi {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 768px) {
+  .rekomendasi-card-desawisata {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+     height: auto;
+  }
+
+  .rekomendasi-image-paketwisata {
+    height: 200px;
+  }
+
+  .rekomendasi-nama {
+    font-size: 16px;
+  }
+
+  .rekomendasi-harga {
+    font-size: 14px;
+  }
+
+  .lihat-detail-rekomendasi {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+}
+/* FOOTER SECTION CSS */
+.footer {
+  background-color: #06647B;
+  color: white;
+  padding: 60px 60px 0;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin-top: 50px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.footer-info {
+  max-width: 400px;
+}
+
+.footer-info h3 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 27px;
+}
+
+.footer-info p {
+  line-height: 1.6;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo img {
+  height: 60px;
+}
+
+.footer-logo span {
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.footer-about-social {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-about h4,
+.footer-social h4,
+.footer-partners h4 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.footer-about ul  {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.footer-about li {
+  font-size: 14px !important;
+  margin-bottom: 8px !important;
+  cursor: pointer !important;
+}
+
+.footer-social .social-icons a {
+  color: white;
+  font-size: 18px;
+  margin-right: 10px;
+  transition: transform 0.2s ease;
+}
+
+.footer-social .social-icons a:hover {
+  transform: scale(1.2);
+}
+
+.footer-partners {
+  max-width: 400px;
+}
+
+.partner-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.partner-logos img {
+  background-color: white;
+  border-radius: 10px;
+  height: 50px;
+  padding: 5px 10px;
+}
+
+.footer-bottom {
+  background-color: #045569;
+  padding: 15px;
+  margin-top: 90px;
+  text-align: center;
+  width: 99vw;
+  color: white;
+  transform: translateX(-60px); /* agar melebihi padding kiri-kanan */
+}
+
+.footer-bottom p{
+  margin-bottom: 0px;
+}
+/* .footer-top > div:not(:last-child) {
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+} */
+
+
+
+/* Tambahan CSS Responsive */
+@media (max-width: 1024px) {
+  .footer-about-social {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-partners {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .footer-info,
+  .footer-about-social,
+  .footer-partners {
+    width: 100%;
+  }
+
+  .footer-about-social {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-social {
+    margin-top: 10px;
+  }
+
+  .partner-logos {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    transform: none;
+    width: 100%;
+    font-size: 12px;
+  }
+}
+
+/* =============================================== */
+
+
+/* ===================== CSS UNTUK FILE content.js FOLDER DETAIL WISATA ================================ */
+.content-detail-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-family: "Poppins";
+}
+
+
+
+.top-section {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.image-side {
+  flex: 1 1 40%;
+}
+
+.detail-image {
+  width: 100%;
+  height: 468px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.description-side {
+  flex: 1 1 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+}
+
+.title-detail-wisata {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #313131;
+ 
+}
+
+.description-detail-wisata {
+  font-size: 1rem;
+  color: #313131;
+   margin-bottom: -0px;
+}
+
+.location-contact p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  color: #313131;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.info-box {
+  flex: 1 1 45%;
+  /* background-color: #E0EEFF; */
+  /* padding: 1rem; */
+  border-radius: 8px;
+  /* box-shadow: 0 2px 5px rgba(0,0,0,0.05); */
+}
+
+.info-box h4 {
+  margin-bottom: 0.5rem;
+  color: #06647B;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.info-box p {
+  color: #313131;
+}
+
+.info-box ul {
+  padding-left: 1.2rem;
+  margin: 0;
+  color: #313131;
+}
+
+.booking-section {
+  background-color: #06647B;
+  padding: 2rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  margin-top: 0px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.price-and-ticket {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.price-and-ticket h3 {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: normal;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.free {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00ffcc;
+}
+
+.per-person {
+  font-size: 0.9rem;
+  font-weight: normal;
+}
+
+.ticket-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+.ticket-control button {
+  width: 37px;
+  height: 37px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: white;
+  color: #2f63b5;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ticket-control span {
+  font-size: 1rem;
+}
+
+.date-picker {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-size: 0.95rem;
+  gap: 0.3rem;
+  margin-bottom: 29px;
+  margin-left: 11px;
+  margin-right: 11px;
+}
+
+.date-picker label {
+  font-weight: bold;
+}
+
+.input-date {
+  padding: 0.5rem 1rem;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  border-radius: 6px;
+  outline: none;
+  width: 160px;
+  text-align: center;
+}
+
+.input-date::placeholder {
+  color: white;
+}
+
+.btn-book {
+  background-color: #f8ab4d;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-book:hover {
+  background-color: #d98827;
+}
+
+.bottom-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cuaca-wrapper-kecil {
+  width: 590px;
+  background: #69C9B0;
+background: linear-gradient(146deg, rgba(105, 201, 176, 1) 0%, rgba(60, 135, 183, 1) 54%);
+  border-radius: 10px;
+  padding: 20px;
+  font-family: "Poppins";
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  text-align: left;
+}
+
+.judul-cuaca {
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  text-align: center;
+  color: #ffffff;
+}
+
+.cuaca-pilihan-hari {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+  justify-content: center;
+}
+
+.btn-hari {
+  padding: 6px 10px;
+  font-size: 12px;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+  color: #ffffff;
+}
+
+.btn-hari.aktif {
+  background-color: #ffffff;
+  color: #313131;
+  font-weight: bold;
+}
+
+.btn-hari:disabled {
+  background-color: #2f63b5;
+  color: #ffffff;
+  cursor: not-allowed;
+}
+
+.cuaca-card-kecil {
+  background: none;
+  padding: 15px 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cuaca-header {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+
+}
+
+.cuaca-icon-kecil {
+  width: 90px;
+  height: 90px;
+  text-align: center;
+  align-items: center;
+}
+
+.cuaca-deskripsi-kecil {
+  font-weight: 500;
+  margin: 8px 0;
+  font-size: 13.5px;
+  text-align: center;
+}
+
+/* .cuaca-detail-flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  font-size: 13px;
+  gap: 16px;
+  margin-top: 10px;
+  color: #ffffff;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+}
+.cuaca-detail-flex p {
+  white-space: nowrap;
+  margin: 0;
+} */
+
+.cuaca-detail-flex {
+  display: flex;
+ flex-wrap: nowrap;
+  justify-content: center;
+  gap: 16px; /* vertical gap, horizontal gap */
+  margin-top: 12px;
+  text-align: center;
+}
+
+.cuaca-detail-flex p {
+  margin: 0;
+  white-space: nowrap;
+  flex: 1 1 120px; /* min width to wrap nicely */
+  max-width: 160px;
+}
+
+.cuaca-deskripsi {
+  font-size: 0.95rem;
+  text-align: center;
+  margin-top: 6px;
+  margin-bottom: 12px;
+  color: #444;
+}
+
+.cuaca-divider {
+  margin: 12px 0;
+  border: none;
+  border-top: 1px solid #eee;
+}
+
+.cuaca-info-bar {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  gap: 10px;
+  color: #333;
+}
+
+.cuaca-vis {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+.cuaca-date-selector {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.cuaca-date-button {
+  background: #f1f1f1;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cuaca-date-button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+/* =============== Ukuran <= 1200px (Laptop kecil / tablet landscape) =============== */
+@media (max-width: 1200px) {
+  .content-detail-wrapper {
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .content-detail-wrapper {
+    flex-direction: column;
+    padding: 0 1.5rem;
+  }
+
+  .top-section,
+  .bottom-section {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .image-side,
+  .description-side,
+  .booking-section,
+  .cuaca-wrapper-kecil,
+  .cuaca-card-kecil {
+    width: 90%;
+    margin: auto;
+  }
+
+  .cuaca-detail-flex {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    width: 90%;
+  }
+
+  .card-rating {
+    flex-direction: column;
+  }
+
+  .left-card-rating {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .right-card-rating {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+
+  .right-card-rating button {
+    width: 100%;
+  }
+
+  .price-and-ticket,
+  .date-picker {
+    margin: 0 40px;
+  }
+
+  .ticket-control {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .btn-book {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .content-detail-wrapper {
+    flex-direction: column;
+    padding: 0 1.5rem;
+  }
+
+  .top-section,
+  .bottom-section {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .image-side,
+  .description-side,
+  .booking-section,
+  .cuaca-wrapper-kecil,
+  .cuaca-card-kecil {
+    width: 90%;
+    margin: auto;
+  }
+
+  .cuaca-detail-flex {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    width: 90%;
+  }
+
+  .card-rating {
+    flex-direction: column;
+  }
+
+  .left-card-rating {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .right-card-rating {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+
+  .right-card-rating button {
+    width: 100%;
+  }
+
+  .price-and-ticket,
+  .date-picker {
+    margin: 0 40px;
+  }
+
+  .ticket-control {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .btn-book {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-detail-wrapper {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+
+  .top-section {
+    flex-direction: column;
+  }
+
+  .image-side {
+    width: 74%;
+    margin-top: 20px;
+  }
+
+  .description-side {
+    width: 74%;
+  }
+
+  .bottom-section {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .cuaca-wrapper-kecil{
+    width: 74%;
+    padding: 1rem;
+  }
+  .cuaca-card-kecil {
+      width: 74%;
+  }
+
+  .booking-section {
+    width: 74%;
+  }
+
+  .cuaca-detail-flex {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .cuaca-card-kecil,
+  .description-side,
+  .image-side {
+    width: 100% !important;
+    padding: 0;
+  }
+
+  .cuaca-wrapper-kecil {
+    width: 100% !important;
+  }
+  .booking-section {
+    width: 100% !important;
+  }
+
+  .detail-image {
+    height: auto;
+    max-height: 350px;
+  }
+  
+  .card-rating {
+    flex-direction: column;
+  }
+
+  .left-card-rating {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .right-card-rating {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+
+  .cuaca-detail-flex {
+    width: 74%;
+  }
+
+  .right-card-rating button {
+    width: 100%;
+  }
+
+
+
+  .price-and-ticket {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 60px;
+  }
+
+  .date-picker {
+    margin: 20px 70px;
+  }
+
+  .ticket-control {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .ticket-control button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .btn-book {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .cuaca-pilihan-hari {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .cuaca-pilihan-hari .btn-hari {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+}
+
+/* =============== Ukuran <= 480px (HP Kecil: iPhone SE, Galaxy Mini) =============== */
+@media (max-width: 480px) {
+  .content-detail-wrapper {
+    padding: 0 0.9rem;
+  }
+
+  .price-and-ticket {
+    margin: 0 10px;
+  }
+
+  .date-picker {
+    margin: 20px 10px;
+  }
+
+  .ticket-control button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .cuaca-pilihan-hari .btn-hari {
+    padding: 5px 8px;
+    font-size: 0.75rem;
+  }
+
+  .detail-image {
+    max-height: 250px;
+  }
+}
+
+/* CSS PAKET WISATA */
+.bottom-section-detail {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Konten di kiri */
+.content-paket-wisata {
+  flex: 2;
+  background-color: #F2F8FF;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.isi-content {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #374151;
+}
+.image-side-paketwisata {
+  flex: 1 1 40%;
+}
+
+.detail-image-paketwisata {
+  width: 100%;
+  height: 96%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.description-side-paketwisata {
+  flex: 1 1 25%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+}
+.isi-content h1, .isi-content h2, .isi-content h3 {
+  font-weight: bold;
+  margin: 1rem 0 0.5rem;
+  color: #1f2937;
+}
+
+.isi-content p {
+  margin: 0.5rem 0;
+}
+
+.isi-content ul, .isi-content ol {
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.isi-content li {
+  margin-bottom: 0.5rem;
+}
+
+.isi-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+  border-radius: 8px;
+}
+.judul-content {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #111827;
+}
+.booking-section-paketwisata {
+  flex: 1;
+  max-width: 350px;
+  background-color: #06647B;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+/* =================================================== */
+
+/* CSS SECTION RATING */
+.rating-wisata {
+  background-color: #fbc02d;
+  color: white;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 12px;
+  display: inline-block;
+  font-size: 13px;
+  width: fit-content;
+}
+
+
+/* ===============css untuk file contentTop.js===================== */
+
+.top-feature-section {
+  margin-top: 0;
+  padding: 18px;
+  background-color: #F2F8FF;
+  overflow: hidden;
+  font-family: "Poppins";
+  height: 200px;
+}
+
+.top-feature-scroll {
+  display: flex;
+  justify-content: center; /* tengah */
+  gap: 7rem; /* jarak antar item agak rapat */
+  padding: 2rem 1rem;
+  flex-wrap: wrap;
+  max-width: 1300px;
+  margin: 0 auto; /* supaya tetap center */
+}
+
+.top-feature-item h3 {
+  font-size: 18px; /* sedikit lebih besar */
+  font-weight: 600;
+  color: #06647B;
+  margin: 0 0 0.5rem;
+  text-transform: capitalize;
+  line-height: 1.4;
+}
+
+.top-feature-item p {
+  font-size: 15px;
+  
+  color: #646464;
+  line-height: 1.5;
+  margin: 0 0 0.05rem;
+}
+
+.top-text {
+  flex: 1;
+  max-width: 100%;
+}
+
+/* Card */
+.top-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  flex: 0 0 330px;
+  max-width: 400px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+}
+
+.top-feature-item:hover {
+  transform: translateY(-5px);
+}
+
+.top-icon {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.top-link {
+  font-size: 14px;
+  color: #06647B;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.top-link:hover {
+  text-decoration: underline;
+}
+
+/* Scroll horizontal di mobile */
+@media (max-width: 768px) {
+  .top-feature-scroll {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 1rem 1rem;
+    justify-content: flex-start; /* agar scroll mulai dari kiri */
+  }
+
+  .top-feature-item {
+    margin-right: 1rem;
+  }
+}
+
+
+
+
+
+
+/* CSS PAKET WISATA DI DESA WISATA */
+.paket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+  .scroll-container-paketwisata {
+    overflow: hidden;
+      padding: 0 20px;
+     width: 100%;
+     margin-bottom: 40px;
+  }
+  .cover-paketwisata-recomend {
+    position: relative;
+    padding: 0 2.5%;
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+.scroll-images-paketwisata {
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+}
+ .scroll-images-paketwisata::-webkit-scrollbar {
+    display: none; /* Hilangkan scrollbar untuk tampilan bersih */
+  }
+.rekomendasi-card-paketwisata {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  width: 450px;
+  height: 350px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #5B4EBD;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.rekomendasi-info-kiri-paketwisata {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0px;
+}
+
+.rekomendasi-image-paketwisata {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+}
+
+
+.rekomendasi-info-paketwisata {
+  padding: 13px;
+  background-color: #06647B;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+}
+
+.rekomendasi-kategori-paketwisata {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+.rekomendasi-nama-paketwisata {
+  font-size: 15px;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+.rekomendasi-harga-paketwisata {
+  font-size: 15px;
+
+}
+
+.lihat-detail-rekomendasi-paketwisata {
+  background-color: #ffffff;
+  color: #06647B;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.lihat-detail-btn:hover {
+  background-color: #e0e0e0;
+}
+.left-arrow-paketwisata {
+    height: 50px;
+    width: 50px;
+    background-color: #fff;
+    color: #06647B;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 25px;
+    border-radius: 50%;
+    position: absolute;
+    left: 2%;
+    top: 55%;
+    transform: translateY(-50%);
+    -webkit-box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);
+    box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);
+    z-index: 1;
+}
+
+.right-arrow-paketwisata {
+    height: 50px;
+    width: 50px;
+    background-color: #fff;
+    color: #06647B;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 25px;
+    position: absolute;
+    border-radius: 50%;
+    right: 2%;
+    top: 55%;
+    transform: translateY(-50%);
+    -webkit-box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);
+    box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);
+    z-index: 1;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .rekomendasi-card-paketwisata  {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    height: auto;
+  }
+
+  .rekomendasi-image-paketwisata {
+    height: 220px;
+  }
+  .left-arrow-paketwisata,
+  .right-arrow-paketwisata {
+    display: none;
+  }
+
+  .rekomendasi-info-paketwisata  {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    gap: 8px;
+  }
+
+  .lihat-detail-rekomendasi-paketwisata  {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 768px) {
+  .rekomendasi-card-paketwisata {
+    width: 90vw;
+  }
+    .left-arrow-paketwisata,
+  .right-arrow-paketwisata {
+    display: none;
+  }
+
+
+  .rekomendasi-image-paketwisata {
+    height: 200px;
+  }
+
+  .rekomendasi-nama-paketwisata  {
+    font-size: 16px;
+  }
+
+  .rekomendasi-harga-paketwisata  {
+    font-size: 14px;
+  }
+
+  .lihat-detail-rekomendasi-paketwisata  {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+}
