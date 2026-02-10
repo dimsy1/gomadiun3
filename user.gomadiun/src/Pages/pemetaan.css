@@ -26,13 +26,13 @@
   right: 10px;
   z-index: 1000;
   padding: 8px 12px;
-  background-color: #06647B;
+  background-color: #06647b;
   color: white;
   border: none;
   border-radius: 8px;
   font-weight: 500;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .legend-container {
@@ -63,7 +63,8 @@
   cursor: pointer;
 }
 
-.legend-marker, .legend-hci {
+.legend-marker,
+.legend-hci {
   font-size: 14px;
 }
 
@@ -103,7 +104,7 @@
 }
 
 .info-button {
-  background: #06647B;
+  background: #06647b;
   color: white;
   border: none;
   border-radius: 50%;
@@ -125,7 +126,7 @@
   padding: 20px;
   width: 700px;
   border-radius: 10px;
-  box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
   z-index: 9999;
 }
 
@@ -155,7 +156,7 @@
   top: 10px;
   left: 60px;
   z-index: 1000;
-  background-color: #06647B;
+  background-color: #06647b;
   color: white;
   border: none;
   padding: 8px 14px;
@@ -197,14 +198,12 @@
   margin: 0;
   font-size: 14px;
   font-weight: bold;
-
 }
 
 .custom-popup .popup-content p {
   margin: 4px 0;
   font-size: 14px;
 }
-
 
 /* POP UP WISATA */
 /* Hanya terapkan style jika popup memiliki class 'wisata-popup' */
@@ -353,7 +352,6 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-
 /* ================== Popup KULINER ================== */
 .leaflet-popup.kuliner-popup .leaflet-popup-content-wrapper {
   background: none;
@@ -435,7 +433,7 @@
   background: white;
   padding: 12px;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: 250px;
 }
 
@@ -484,11 +482,10 @@
 }
 
 .tanggal-button.active {
-  background: #06647B;
+  background: #06647b;
   color: #fff;
   font-weight: bold;
 }
-
 
 /* ================== Popup DESA WISATA ================== */
 /* Popup container */
@@ -532,7 +529,6 @@
   width: 100%;
   height: 150px;
   object-fit: cover;
-  
 }
 
 /* Body bawah gambar */
@@ -580,7 +576,7 @@
   padding: 8px 12px;
   border-radius: 6px;
   font-weight: bold;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   cursor: pointer;
 }
 
@@ -623,7 +619,6 @@
 .search-filter-wrapper.show {
   display: block;
 }
-
 
 /* ======================== RESPONSIVE ======================== */
 @media (max-width: 768px) {
@@ -758,7 +753,6 @@
   }
 }
 
-
 /* --- CSS untuk Tombol Cari Rute --- */
 .popup-link {
   /* ... (style Anda yang sudah ada) ... */
@@ -814,17 +808,17 @@
   left: 50%;
   transform: translateX(-50%); /* Trik agar benar-benar di tengah */
   z-index: 1000;
-  
+
   background-color: white;
   padding: 10px 20px;
   border-radius: 30px; /* Bentuk kapsul */
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
   display: flex;
   align-items: center;
   gap: 15px;
-  
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   animation: slideDown 0.3s ease-out;
 }
 
@@ -855,15 +849,21 @@
 
 /* Animasi masuk */
 @keyframes slideDown {
-  from { top: -50px; opacity: 0; }
-  to { top: 20px; opacity: 1; }
+  from {
+    top: -50px;
+    opacity: 0;
+  }
+  to {
+    top: 20px;
+    opacity: 1;
+  }
 }
 
 /* Sesuaikan tombol hapus rute agar tidak menumpuk jika di layar kecil */
 @media (max-width: 600px) {
   .route-info-panel {
     top: auto;
-    bottom: 30px; /* Pindah ke bawah di HP */
+    bottom: 80px; /* Pindah ke bawah di HP */
     width: 90%;
     justify-content: space-around;
   }

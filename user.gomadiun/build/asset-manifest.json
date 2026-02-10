@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.aace148e.css",
-    "main.js": "/static/js/main.4294e041.js",
+    "main.css": "/static/css/main.cf21435a.css",
+    "main.js": "/static/js/main.1e23911e.js",
     "static/media/wisatahero2.jpg": "/static/media/wisatahero2.9a9f7ec1d3709e48995d.jpg",
     "static/media/background3.jpg": "/static/media/background3.cda2de563f38e087a4e9.jpg",
     "static/media/markerkuliner.png": "/static/media/markerkuliner.8c17a7427744b5e64237.png",
@@ -25,11 +25,11 @@
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "index.html": "/index.html",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
-    "main.aace148e.css.map": "/static/css/main.aace148e.css.map",
-    "main.4294e041.js.map": "/static/js/main.4294e041.js.map"
+    "main.cf21435a.css.map": "/static/css/main.cf21435a.css.map",
+    "main.1e23911e.js.map": "/static/js/main.1e23911e.js.map"
   },
   "entrypoints": [
-    "static/css/main.aace148e.css",
-    "static/js/main.4294e041.js"
+    "static/css/main.cf21435a.css",
+    "static/js/main.1e23911e.js"
   ]
 }
