@@ -3,7 +3,7 @@ const { sequelize } = require('../models'); // Pastikan path sesuai dengan struk
 const tbl_data_pengunjung = db.tbl_data_pengunjung;
 const tbl_DesaWisata = db.tbl_DesaWisata;
 const tbl_Wisata = db.tbl_Wisata;
-const tbl_Penginapan = db.tbl_Penginapan;
+const tbl_penginapan = db.tbl_Penginapan;
 const tbl_Kuliner = db.tbl_Kuliner;
 const tbl_Paket_wisata = db.tbl_Paket_wisata;
 const tbl_Admin = db.tbl_Admin;
@@ -492,7 +492,7 @@ const add_data_data_pengunjung_byAdmin = async (req, res) => {
                     updatedAt: currentDateTime
                 });
 
-            if (keywoard === "tbl_DesaWisata") {
+            if (keywoard === "tbl_desawisata") {
 
                 const data_desawisata = await tbl_DesaWisata.findOne({
                     where: {
@@ -517,7 +517,7 @@ const add_data_data_pengunjung_byAdmin = async (req, res) => {
                     updatedAt: currentDateTime
                 });
 
-            } else if (keywoard === "tbl_Wisata") {
+            } else if (keywoard === "tbl_wisata") {
 
                 const data_wisata = await tbl_Wisata.findOne({
                     where: {
@@ -542,7 +542,7 @@ const add_data_data_pengunjung_byAdmin = async (req, res) => {
                     updatedAt: currentDateTime
                 });
 
-            } else if (keywoard === "tbl_Paket_wisata") {
+            } else if (keywoard === "tbl_paket_wisata") {
 
                 const data_paket_wisata = await tbl_Paket_wisata.findOne({
                     where: {
@@ -567,9 +567,9 @@ const add_data_data_pengunjung_byAdmin = async (req, res) => {
                     updatedAt: currentDateTime
                 });
 
-            } else if (keywoard === "tbl_Penginapan") {
+            } else if (keywoard === "tbl_penginapan") {
 
-                const data_penginapan = await tbl_Penginapan.findOne({
+                const data_penginapan = await tbl_penginapan.findOne({
                     where: {
                         id_penginapan: id_table,
                     },
@@ -592,7 +592,7 @@ const add_data_data_pengunjung_byAdmin = async (req, res) => {
                     updatedAt: currentDateTime
                 });
 
-            } else if (keywoard === "tbl_Kuliner") {
+            } else if (keywoard === "tbl_kuliner") {
 
                 const data_kuliner = await tbl_Kuliner.findOne({
                     where: {
@@ -738,7 +738,7 @@ const update_data_pengunjung_byAdmin = async (req, res) => {
 
             if (pengunjung_update.status_verifikasi === "verified") {
 
-                if (pengunjung_update.nama_table === "tbl_DesaWisata") {
+                if (pengunjung_update.nama_table === "tbl_desawisata") {
 
                     const data_desawisata = await tbl_DesaWisata.findOne({
                         where: {
@@ -765,7 +765,7 @@ const update_data_pengunjung_byAdmin = async (req, res) => {
                         updatedAt: currentDateTime
                     });
 
-                } else if (pengunjung_update.nama_table === "tbl_Wisata") {
+                } else if (pengunjung_update.nama_table === "tbl_wisata") {
 
                     const data_wisata = await tbl_Wisata.findOne({
                         where: {
@@ -792,7 +792,7 @@ const update_data_pengunjung_byAdmin = async (req, res) => {
                         updatedAt: currentDateTime
                     });
         // ===============================================================================
-                } else if (pengunjung_update.nama_table === "tbl_Paket_wisata") {
+                } else if (pengunjung_update.nama_table === "tbl_paket_wisata") {
 
                     const data_paket_wisata = await tbl_Paket_wisata.findOne({
                         where: {
@@ -819,9 +819,9 @@ const update_data_pengunjung_byAdmin = async (req, res) => {
                         updatedAt: currentDateTime
                     });
 
-                } else if (pengunjung_update.nama_table === "tbl_Penginapan") {
+                } else if (pengunjung_update.nama_table === "tbl_penginapan") {
 
-                    const data_penginapan = await tbl_Penginapan.findOne({
+                    const data_penginapan = await tbl_penginapan.findOne({
                         where: {
                             id_penginapan: pengunjung_update.id_table,
                         },
@@ -846,7 +846,7 @@ const update_data_pengunjung_byAdmin = async (req, res) => {
                         updatedAt: currentDateTime
                     });
                     
-                } else if (pengunjung_update.nama_table === "tbl_Kuliner") {
+                } else if (pengunjung_update.nama_table === "tbl_kuliner") {
 
                     const data_kuliner = await tbl_Kuliner.findOne({
                         where: {
@@ -873,7 +873,7 @@ const update_data_pengunjung_byAdmin = async (req, res) => {
                         updatedAt: currentDateTime
                     });
 
-                } else if (pengunjung_update.nama_table === "tbl_Paket_wisata") {
+                } else if (pengunjung_update.nama_table === "tbl_paket_wisata") {
 
                     const data_paket_wisata = await tbl_Paket_wisata.findOne({
                         where: {
@@ -1068,7 +1068,7 @@ const put_verifikasi_data_pengunjung = async (req, res) => {
             let data_penginapan = [];
             let data_kuliner = [];
 
-            if (pengunjung_update.nama_table === "tbl_DesaWisata") {
+            if (pengunjung_update.nama_table === "tbl_desawisata") {
 
                 data_desawisata = await tbl_DesaWisata.findOne({
                     where: {
@@ -1084,7 +1084,7 @@ const put_verifikasi_data_pengunjung = async (req, res) => {
                     });
                 }
 
-            } else if (pengunjung_update.nama_table === "tbl_Wisata") {
+            } else if (pengunjung_update.nama_table === "tbl_wisata") {
 
                 data_wisata = await tbl_Wisata.findOne({
                     where: {
@@ -1100,7 +1100,7 @@ const put_verifikasi_data_pengunjung = async (req, res) => {
                     });
                 }
 
-            } else if (pengunjung_update.nama_table === "tbl_Paket_wisata") {
+            } else if (pengunjung_update.nama_table === "tbl_paket_wisata") {
 
                 data_paket_wisata = await tbl_Paket_wisata.findOne({
                     where: {
@@ -1116,9 +1116,9 @@ const put_verifikasi_data_pengunjung = async (req, res) => {
                     });
                 }
 
-            } else if (pengunjung_update.nama_table === "tbl_Penginapan") {
+            } else if (pengunjung_update.nama_table === "tbl_penginapan") {
 
-                data_penginapan = await tbl_Penginapan.findOne({
+                data_penginapan = await tbl_penginapan.findOne({
                     where: {
                         id_penginapan: pengunjung_update.id_table,
                     },
@@ -1132,7 +1132,7 @@ const put_verifikasi_data_pengunjung = async (req, res) => {
                     });
                 }
 
-            } else if (pengunjung_update.nama_table === "tbl_Kuliner") {
+            } else if (pengunjung_update.nama_table === "tbl_kuliner") {
 
                 data_kuliner = await tbl_Kuliner.findOne({
                     where: {
@@ -1164,7 +1164,7 @@ const put_verifikasi_data_pengunjung = async (req, res) => {
                 });
             }
 
-            if (pengunjung_update.nama_table === "tbl_DesaWisata") {
+            if (pengunjung_update.nama_table === "tbl_desawisata") {
 
                 const total_pengunjung_inputan = parseInt(pengunjung_update.jumlah_pengunjung_lokal) + parseInt(pengunjung_update.jumlah_pengunjung_mancanegara);
                 const total_pengunjung_update = parseInt(data_desawisata.total_pengunjung) + total_pengunjung_inputan;
@@ -1175,7 +1175,7 @@ const put_verifikasi_data_pengunjung = async (req, res) => {
                     updatedAt: currentDateTime
                 });
 
-            } else if (pengunjung_update.nama_table === "tbl_Wisata") {
+            } else if (pengunjung_update.nama_table === "tbl_wisata") {
 
                 const total_pengunjung_inputan = parseInt(pengunjung_update.jumlah_pengunjung_lokal) + parseInt(pengunjung_update.jumlah_pengunjung_mancanegara);
                 const total_pengunjung_update = parseInt(data_wisata.total_pengunjung_destinasi) + total_pengunjung_inputan;
@@ -1186,7 +1186,7 @@ const put_verifikasi_data_pengunjung = async (req, res) => {
                     updatedAt: currentDateTime
                 });
 
-            } else if (pengunjung_update.nama_table === "tbl_Paket_wisata") {
+            } else if (pengunjung_update.nama_table === "tbl_paket_wisata") {
 
                 const total_pengunjung_inputan = parseInt(pengunjung_update.jumlah_pengunjung_lokal) + parseInt(pengunjung_update.jumlah_pengunjung_mancanegara);
                 const total_pengunjung_update = parseInt(data_paket_wisata.total_pengunjung_paket_wisata) + total_pengunjung_inputan;
@@ -1197,7 +1197,7 @@ const put_verifikasi_data_pengunjung = async (req, res) => {
                     updatedAt: currentDateTime
                 });
 
-            } else if (pengunjung_update.nama_table === "tbl_Penginapan") {
+            } else if (pengunjung_update.nama_table === "tbl_penginapan") {
 
                 const total_pengunjung_inputan = parseInt(pengunjung_update.jumlah_pengunjung_lokal) + parseInt(pengunjung_update.jumlah_pengunjung_mancanegara);
                 const total_pengunjung_update = parseInt(data_penginapan.total_pengunjung_penginapan) + total_pengunjung_inputan;
@@ -1208,7 +1208,7 @@ const put_verifikasi_data_pengunjung = async (req, res) => {
                     updatedAt: currentDateTime
                 });
 
-            } else if (pengunjung_update.nama_table === "tbl_Kuliner") {
+            } else if (pengunjung_update.nama_table === "tbl_kuliner") {
 
                 const total_pengunjung_inputan = parseInt(pengunjung_update.jumlah_pengunjung_lokal) + parseInt(pengunjung_update.jumlah_pengunjung_mancanegara);
                 const total_pengunjung_update = parseInt(data_kuliner.total_pengunjung_kuliner) + total_pengunjung_inputan;
@@ -1238,7 +1238,7 @@ const put_verifikasi_data_pengunjung = async (req, res) => {
             let data_kuliner = [];
             let data_paket_wisata = [];
 
-            if (pengunjung_update.nama_table === "tbl_DesaWisata") {
+            if (pengunjung_update.nama_table === "tbl_desawisata") {
 
                 data_desawisata = await tbl_DesaWisata.findOne({
                     where: {
@@ -1254,7 +1254,7 @@ const put_verifikasi_data_pengunjung = async (req, res) => {
                     });
                 }
 
-            } else if (pengunjung_update.nama_table === "tbl_Wisata") {
+            } else if (pengunjung_update.nama_table === "tbl_wisata") {
 
                 data_wisata = await tbl_Wisata.findOne({
                     where: {
@@ -1270,7 +1270,7 @@ const put_verifikasi_data_pengunjung = async (req, res) => {
                     });
                 }
 
-            } else if (pengunjung_update.nama_table === "tbl_Paket_wisata") {
+            } else if (pengunjung_update.nama_table === "tbl_paket_wisata") {
 
                 data_paket_wisata = await tbl_Paket_wisata.findOne({
                     where: {
@@ -1286,9 +1286,9 @@ const put_verifikasi_data_pengunjung = async (req, res) => {
                     });
                 }
 
-            } else if (pengunjung_update.nama_table === "tbl_Penginapan") {
+            } else if (pengunjung_update.nama_table === "tbl_penginapan") {
 
-                data_penginapan = await tbl_Penginapan.findOne({
+                data_penginapan = await tbl_penginapan.findOne({
                     where: {
                         id_penginapan: pengunjung_update.id_table,
                     },
@@ -1302,7 +1302,7 @@ const put_verifikasi_data_pengunjung = async (req, res) => {
                     });
                 }
 
-            } else if (pengunjung_update.nama_table === "tbl_Kuliner") {
+            } else if (pengunjung_update.nama_table === "tbl_kuliner") {
 
                 data_kuliner = await tbl_Kuliner.findOne({
                     where: {
@@ -1342,7 +1342,7 @@ const put_verifikasi_data_pengunjung = async (req, res) => {
                 });
             }
             
-            if (pengunjung_update.nama_table === "tbl_DesaWisata") {
+            if (pengunjung_update.nama_table === "tbl_desawisata") {
 
                 const total_pengunjung_inputan = parseInt(pengunjung_update.jumlah_pengunjung_lokal) + parseInt(pengunjung_update.jumlah_pengunjung_mancanegara);
                 const total_pengunjung_update = parseInt(data_desawisata.total_pengunjung) + total_pengunjung_inputan;
@@ -1353,7 +1353,7 @@ const put_verifikasi_data_pengunjung = async (req, res) => {
                     updatedAt: currentDateTime
                 });
 
-            } else if (pengunjung_update.nama_table === "tbl_Wisata") {
+            } else if (pengunjung_update.nama_table === "tbl_wisata") {
 
                 const total_pengunjung_inputan = parseInt(pengunjung_update.jumlah_pengunjung_lokal) + parseInt(pengunjung_update.jumlah_pengunjung_mancanegara);
                 const total_pengunjung_update = parseInt(data_wisata.total_pengunjung_destinasi) + total_pengunjung_inputan;
@@ -1364,7 +1364,7 @@ const put_verifikasi_data_pengunjung = async (req, res) => {
                     updatedAt: currentDateTime
                 });
 
-            } else if (pengunjung_update.nama_table === "tbl_Paket_wisata") {
+            } else if (pengunjung_update.nama_table === "tbl_paket_wisata") {
 
                 const total_pengunjung_inputan = parseInt(pengunjung_update.jumlah_pengunjung_lokal) + parseInt(pengunjung_update.jumlah_pengunjung_mancanegara);
                 const total_pengunjung_update = parseInt(data_paket_wisata.total_pengunjung_paket_wisata) + total_pengunjung_inputan;
@@ -1375,7 +1375,7 @@ const put_verifikasi_data_pengunjung = async (req, res) => {
                     updatedAt: currentDateTime
                 });
 
-            } else if (pengunjung_update.nama_table === "tbl_Penginapan") {
+            } else if (pengunjung_update.nama_table === "tbl_penginapan") {
 
                 const total_pengunjung_inputan = parseInt(pengunjung_update.jumlah_pengunjung_lokal) + parseInt(pengunjung_update.jumlah_pengunjung_mancanegara);
                 const total_pengunjung_update = parseInt(data_penginapan.total_pengunjung_penginapan) + total_pengunjung_inputan;
@@ -1386,7 +1386,7 @@ const put_verifikasi_data_pengunjung = async (req, res) => {
                     updatedAt: currentDateTime
                 });
 
-            } else if (pengunjung_update.nama_table === "tbl_Kuliner") {
+            } else if (pengunjung_update.nama_table === "tbl_kuliner") {
 
                 const total_pengunjung_inputan = parseInt(pengunjung_update.jumlah_pengunjung_lokal) + parseInt(pengunjung_update.jumlah_pengunjung_mancanegara);
                 const total_pengunjung_update = parseInt(data_kuliner.total_pengunjung_kuliner) + total_pengunjung_inputan;
@@ -1397,7 +1397,7 @@ const put_verifikasi_data_pengunjung = async (req, res) => {
                     updatedAt: currentDateTime
                 });
 
-            // } else if (pengunjung_update.nama_table === "tbl_Paket_wisata") {
+            // } else if (pengunjung_update.nama_table === "tbl_paket_wisata") {
 
             //     const total_pengunjung_inputan = parseInt(pengunjung_update.jumlah_pengunjung_lokal) + parseInt(pengunjung_update.jumlah_pengunjung_mancanegara);
             //     const total_pengunjung_update = parseInt(data_wisata.total_pengunjung_paket_wisata) + total_pengunjung_inputan;

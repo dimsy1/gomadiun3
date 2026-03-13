@@ -58,9 +58,17 @@ function App() {
         Navigate('/dashboard')
       }
     } catch (error) {
-      if (error.response.status === 401) {
-        setStatusLogin("belum_login");
-        Navigate('/login')
+      // --- PERBAIKAN PENTING DI SINI ---
+      if (error.response) {
+        // Jika server merespon (misal: 401 Unauthorized)
+        if (error.response.status === 401) {
+          setStatusLogin("belum_login");
+          navigate('/');
+        }
+      } else {
+        // Jika kena CORS atau Server Mati (error.response KOSONG)
+        console.log("Network Error / CORS Issue:", error.message);
+        // Jangan lakukan apa-apa agar tidak crash
       }
     }
   }
@@ -119,7 +127,7 @@ function App() {
           <Route path="/pengumuman" element={<TablePengumuman />} />
           <Route path="/qrcode-scan" element={<QrCodePage />} />
 
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/" element={<LoginPage />} />
         </Routes>
       </div>
     </div>

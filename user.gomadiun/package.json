@@ -14,6 +14,7 @@
     "axios": "^1.6.8",
     "chart.js": "2.9.4",
     "dotenv": "^16.4.5",
+    "html2pdf.js": "^0.14.0",
     "leaflet": "^1.9.4",
     "lodash": "^4.17.21",
     "lottie-react": "^2.4.0",
