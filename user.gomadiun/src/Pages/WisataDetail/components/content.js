@@ -1,7 +1,6 @@
 import { React, useState, useCallback, useEffect, useRef } from "react";
 import axios from "axios";
 import moment from "moment";
-import "./PannellumModal.css";
 
 function ContentDetailDesaWisata({
   Detailwisata,
@@ -144,6 +143,46 @@ function ContentDetailDesaWisata({
       default:
         return "#bdc3c7";
     }
+  };
+
+  const getIconByHCI = (kategori) => {
+    const basePath = "/assets/img/weather/"; // Pastikan file sudah di folder public
+    const iconStyle = { width: "85px", height: "85px" };
+
+    const getFileName = (kat) => {
+      switch (kat) {
+        case "Ideal": 
+          return "clear-day.svg";
+        case "Sangat Baik": 
+          return "partly-cloudy-day.svg";
+        case "Baik": 
+          return "cloudy.svg";
+        case "Cukup Baik": 
+          return "overcast-day.svg";
+        case "Ditoleransi": 
+          return "partly-cloudy-day-rain.svg"; // Pengganti yang pas
+        case "Batas Kondisi Ditoleransi (Umum)": 
+          return "rain.svg";
+        case "Tidak Baik": 
+          return "thunderstorms-day.svg";
+        case "Sangat Tidak Baik": 
+          return "thunderstorms-day-rain.svg";
+        case "Sangat Ekstrem": 
+          return "hurricane.svg"; // Menggunakan file yang ada di screenshot
+        case "Tidak Memungkinkan": 
+          return "not-available.svg";
+        default: 
+          return "not-available.svg";
+      }
+    };
+
+    return (
+      <img 
+        src={`${basePath}${getFileName(kategori)}`} 
+        style={iconStyle} 
+        alt={kategori} 
+      />
+    );
   };
 
   const getDeskripsiByKategori = (kategori) => {
@@ -308,118 +347,132 @@ function ContentDetailDesaWisata({
         </div>
       </div>
 
-      <div className="bottom-section">
-        {/* Bagian Cuaca */}
-        {uniqueHciList && uniqueHciList.length > 0 ? (
-          <div className="cuaca-wrapper-kecil">
-            <h3 className="judul-cuaca">Holiday Climate Index Destinasi</h3>
-            <div className="cuaca-pilihan-hari">
-              {uniqueHciList.map((item, index) => (
-                <button
-                  key={index}
-                  onClick={() => setSelectedIndex(index)}
-                  className={`btn-hari ${
-                    selectedIndex === index ? "aktif" : ""
-                  }`}
-                >
-                  {moment(item.tanggal).format("ddd, DD MMM")}
-                </button>
-              ))}
-            </div>
-            {uniqueHciList[selectedIndex] && (
-              <div className="cuaca-card-kecil">
-                <div
-                  className="cuaca-header"
-                  style={{ display: "flex", alignItems: "center", gap: "1rem" }}
-                >
-                  <div
-                    style={{
-                      width: "80px",
-                      height: "100px",
-                      backgroundColor: getColorByHCI(
-                        uniqueHciList[selectedIndex].hci_kategori
-                      ),
-                      borderRadius: "4px",
-                      marginRight: "20px",
-                      flexShrink: 0,
-                    }}
-                  ></div>
-                  <div style={{ textAlign: "left" }}>
-                    <p>
-                      <strong>Daerah Kec. {wisata.nama_kecamatan}</strong>
-                    </p>
-                    <p>
-                      Holiday Climate Index :{" "}
-                      <strong>{uniqueHciList[selectedIndex].hci_score}</strong>
-                    </p>
-                    <p>
-                      Status :{" "}
-                      <strong>
-                        {uniqueHciList[
-                          selectedIndex
-                        ].hci_kategori.toUpperCase()}
-                      </strong>
-                    </p>
-                    <p>
-                      Tanggal:{" "}
-                      {moment(uniqueHciList[selectedIndex].tanggal).format(
-                        "D/M/YYYY"
-                      )}
-                    </p>
-                  </div>
-                </div>
-                <p style={{ marginTop: "1rem" }}>
-                  <strong>Keterangan:</strong>{" "}
-                  {getDeskripsiByKategori(
-                    uniqueHciList[selectedIndex].hci_kategori
-                  )}
-                </p>
-              </div>
-            )}
-          </div>
-        ) : (
-          <p style={{ marginTop: "2rem" }}>Data HCI tidak tersedia saat ini.</p>
-        )}
+      <div className="bottom-info-grid">
+        
+        {/* --- KOLOM KIRI: PANEL CUACA MODERN --- */}
+        <div className="weather-card-modern">
+          <h3 style={{fontSize: "1.2rem", marginBottom: "1.5rem", fontWeight: "500"}}>
+            Cuaca destinasi dalam 5 hari ke depan
+          </h3>
 
-        {/* Bagian Booking */}
-        <div className="booking-section">
-          <div className="price-and-ticket">
-            Harga Tiket
-            {wisata.harga === "GRATIS" ? (
-              <span className="free">GRATIS</span>
-            ) : (
-              <span className="price">
-                {Number(wisata.harga).toLocaleString("id-ID", {
-                  style: "currency",
-                  currency: "IDR",
-                })}
-                <span className="per-person"> / orang</span>
-              </span>
-            )}
-            <div className="ticket-control">
-              <button className="btn-min" onClick={min}>
-                -
-              </button>
-              <span>{jumlahWisatawan} Tiket</span>
-              <button className="btn-add" onClick={add}>
-                +
-              </button>
+          {uniqueHciList && uniqueHciList.length > 0 ? (
+            <>
+              {/* 1. Tabs Hari */}
+              <div className="weather-tabs">
+                {uniqueHciList.map((item, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setSelectedIndex(index)}
+                    className={`btn-weather-tab ${selectedIndex === index ? "active" : ""}`}
+                  >
+                    {moment(item.tanggal).format("ddd, DD MMM")}
+                  </button>
+                ))}
+              </div>
+
+              {uniqueHciList[selectedIndex] && (
+                <>
+                  {/* 2. Icon & Suhu Utama */}
+                  <div className="weather-main-content" style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
+                    <div style={{width: '90px', height: '90px'}}>
+                         {getIconByHCI(uniqueHciList[selectedIndex].hci_kategori)}
+                    </div>
+                    <span className="weather-temp-big">
+                      {Math.round(uniqueHciList[selectedIndex].temp)}°C
+                    </span>
+                  </div>
+
+                  {/* 3. Deskripsi Singkat */}
+                  <div className="weather-desc-text">
+                    Terasa seperti {Math.round(uniqueHciList[selectedIndex].temp + 2)}°C | {" "}
+                    {uniqueHciList[selectedIndex].hci_kategori} | {" "}
+                    {uniqueHciList[selectedIndex].wind < 5 ? "Calm" : "Berangin"}
+                  </div>
+
+                  {/* 4. Detail Metrics (Bawah) */}
+                  <div className="weather-metrics">
+                    <div className="metric-item">
+                      <i className="fas fa-wind"></i>
+                      <span>{uniqueHciList[selectedIndex].wind} km/h</span>
+                    </div>
+                    {/* Pressure */}
+                    <div className="metric-item">
+                      <i className="fas fa-tachometer-alt"></i>
+                      <span>{uniqueHciList[selectedIndex].pressure || "-"} hPa</span>
+                    </div>
+                    {/* Humidity */}
+                    <div className="metric-item">
+                      <i className="fas fa-tint"></i>
+                      <span>{uniqueHciList[selectedIndex].humidity || "-"}%</span>
+                    </div>
+                    {/* Jarak Pandang */}
+                    <div className="metric-item">
+                      <i className="fas fa-eye"></i>
+                      <span>
+                        {uniqueHciList[selectedIndex].visibility 
+                          ? `${(uniqueHciList[selectedIndex].visibility / 1000).toFixed(1)} km` 
+                          : "-"}
+                      </span>
+                    </div>
+                  </div>
+                </>
+              )}
+            </>
+          ) : (
+             <p style={{textAlign:'center', marginTop:'2rem'}}>Data cuaca tidak tersedia atau sedang dimuat.</p>
+          )}
+        </div>
+
+        {/* --- KOLOM KANAN: PANEL BOOKING MODERN --- */}
+        <div className="booking-card-modern">
+          
+          {/* Baris Atas: Harga & Tanggal */}
+          <div className="booking-header-row">
+            <div className="price-box">
+              <label>Harga Tiket</label>
+              {wisata.harga === "GRATIS" ? (
+                 <div className="price-amount">GRATIS</div>
+              ) : (
+                <div className="price-amount">
+                  {Number(wisata.harga).toLocaleString("id-ID", {
+                    style: "currency",
+                    currency: "IDR",
+                    minimumFractionDigits: 0
+                  })} 
+                  <span className="price-unit"> / orang</span>
+                </div>
+              )}
+            </div>
+
+            <div className="date-box">
+              <label>Pilih Tanggal Booking</label>
+              <input
+                type="date"
+                value={moment(date).format("YYYY-MM-DD")}
+                onChange={handleDateChange}
+                className="input-date-modern"
+              />
             </div>
           </div>
-          <div className="date-picker">
-            <label>Pilih Tanggal Booking</label>
-            <input
-              type="date"
-              value={moment(date).format("YYYY-MM-DD")}
-              onChange={handleDateChange}
-              className="input-date"
-            />
+
+          {/* Baris Bawah: Counter & Tombol Action */}
+          <div className="booking-action-row">
+            <div className="ticket-counter">
+              <button className="btn-qty" onClick={min}>-</button>
+              <span className="ticket-count-text">{jumlahWisatawan} Tiket</span>
+              <button className="btn-qty" onClick={add}>+</button>
+            </div>
+
+            <button className="btn-submit-orange" onClick={AddKeranjang}>
+              Masukkan Keranjang
+            </button>
           </div>
-          <button className="btn-book" onClick={AddKeranjang}>
-            Masukkan Keranjang
-          </button>
+
         </div>
+
       </div>
+      {/* AKHIR BAGIAN BAWAH GRID */}
+
     </div>
   );
 }

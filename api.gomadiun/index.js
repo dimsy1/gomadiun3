@@ -32,6 +32,15 @@ app.use((req, res, next) => {
 });
 //--------------------------------------------------------------
 
+//Local---------------------------------------------------------
+app.use((req, res, next) => {
+  res.header('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  res.header('Pragma', 'no-cache');
+  res.header('Expires', '0');
+  next();
+});
+//--------------------------------------------------------------
+
 // ✅ ===== MIDDLEWARE URUTAN WAJIB =====
 
 // 1️⃣ CORS harus paling atas sebelum route apapun
@@ -93,6 +102,21 @@ app.use('/uploads/img/penginapan/gallery', express.static('uploads/img/penginapa
 app.use('/uploads/img/menu', express.static('uploads/img/menu'));
 app.use('/uploads/img/banerInfo', express.static('uploads/img/banerInfo'));
 app.use('/uploads/img/berita', express.static('uploads/img/berita'));
+// HOSTING------------------------
+// app.use('/uploads/img/virtual-tour', express.static('uploads/img/virtual-tour'));
+//--------------------------------
+
+//Local-------------------------------------------------------------------------------
+app.use('/uploads/img/virtual-tour', express.static('uploads/img/virtual-tour', {
+  setHeaders: (res) => {
+    // Memberikan izin akses khusus untuk frontend kamu
+    res.set('Access-Control-Allow-Origin', 'http://localhost:3002'); 
+    res.set('Access-Control-Allow-Methods', 'GET, OPTIONS');
+    // Mematikan cache sementara agar tidak muncul error 304 saat pengembangan
+    res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  }
+}));
+//------------------------------------------------------------------------------------------
 // HOSTING------------------------
 // app.use('/uploads/img/virtual-tour', express.static('uploads/img/virtual-tour'));
 //--------------------------------

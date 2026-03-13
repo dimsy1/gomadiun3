@@ -334,7 +334,7 @@ const get_all_wisata = async (req, res) => {
     };
 
     const currentUrl = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
-    const excludePagesUrl = "https://apigomadiun.tifpsdku.com/api/desawisata/get_all";
+    const excludePagesUrl = `${process.env.FRONTEND_APP_URL}/api/desawisata/get_all`;
 
     if (currentUrl === excludePagesUrl) {
       delete result.pages;
@@ -380,11 +380,27 @@ const get_detail_wisata = async (req, res) => {
       attributes: ['id_kecamatan', 'nama_kecamatan']
     });
 
+    const today = moment().tz('Asia/Jakarta').startOf('day').format('YYYY-MM-DD');
+
     // Ambil riwayat HCI untuk kecamatan ini (6 hari terakhir)
     const hci_list = await tbl_HCIHistory.findAll({
-      where: { id_kecamatan: data.id_kecamatan },
-      attributes: ['tanggal', 'hci_score', 'hci_kategori'],
-      order: [['tanggal', 'DESC']],
+      where: { 
+        id_kecamatan: data.id_kecamatan,
+        tanggal: { [Op.gte]: today } // Hanya ambil hari ini ke depan (Forecast)
+      },
+      attributes: [
+        'tanggal', 
+        'hci_score', 
+        'hci_kategori',
+        'temp',       // Tambahkan ini
+        'rain',       // Tambahkan ini
+        'clouds',     // Tambahkan ini
+        'wind',       // Tambahkan ini
+        'pressure',   // Tambahkan ini
+        'humidity',   // Tambahkan ini
+        'visibility'  // Tambahkan ini
+      ],
+      order: [['tanggal', 'ASC']], // Urutkan dari hari ini ke besok (ASC)
       limit: 6
     });
 
