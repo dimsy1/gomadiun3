@@ -3592,3 +3592,45 @@ background: linear-gradient(146deg, rgba(105, 201, 176, 1) 0%, rgba(60, 135, 183
     padding: 6px 10px;
   }
 }
+
+/* Tombol Install PWA Melayang di Kanan Bawah (Tema GoMadiun) */
+.btn-floating-install {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  
+  /* --- PERUBAHAN WARNA DI SINI --- */
+  background-color: #06647B; /* Warna biru khas GoMadiun */
+  box-shadow: 0 4px 15px rgba(6, 100, 123, 0.4); /* Bayangan disesuaikan dengan warna tombol */
+  color: white;
+  
+  border: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-floating-install:hover {
+  /* --- PERUBAHAN WARNA HOVER DI SINI --- */
+  background-color: #04426C; /* Warna biru sedikit lebih gelap saat kursor diarahkan */
+  box-shadow: 0 6px 20px rgba(6, 100, 123, 0.6);
+  transform: translateY(-3px);
+}
+
+/* Penyesuaian untuk layar HP agar tidak terlalu besar */
+@media (max-width: 576px) {
+  .btn-floating-install {
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+}

@@ -243,36 +243,56 @@ const calculateDailyHCI = (forecastData) => {
 // 3. CALCULATE FOR ALL KECAMATAN (Save to DB)
 // ==========================================================
 const calculateHCIForAllKecamatan = async (req, res) => {
-  if (req.query.secret_key !== "TeknikInformatika23") {
-     return res.status(403).json({ message: "Akses ditolak" });
-  }
-
   try {
+    const secret = req.query?.secret_key || req.body?.secret_key;
+    
+    if (secret !== "TeknikInformatika23") {
+       console.warn("⛔ Akses Ditolak: Secret Key salah atau tidak ada.");
+       if (res && typeof res.status === 'function') {
+           return res.status(403).json({ message: "Akses ditolak: Secret Key tidak valid" });
+       }
+       return; 
+    }
+
     const kecamatans = await tbl_Kecamatan.findAll();
+    
+    // Ambil tanggal hari ini sebagai batas hapus
+    const today = moment().tz('Asia/Jakarta').startOf('day').format('YYYY-MM-DD');
 
     for (const kecamatan of kecamatans) {
       const { latitude, longitude, id_kecamatan } = kecamatan;
 
-      if (!latitude || !longitude) {
-        console.warn(`⛔ Skip: ${kecamatan.nama_kecamatan} tidak memiliki koordinat`);
-        continue;
-      }
+      if (!latitude || !longitude) continue;
 
+      // 1. Ambil data dari API OpenWeather
       const forecast = await getWeatherForecast(latitude, longitude);
-      if (!forecast) continue;
+      if (!forecast) continue; // Jika API gagal, lewati (data lama tidak terhapus)
 
       const dailyResults = calculateDailyHCI(forecast);
 
+      // ====================================================================
+      // 2. STRATEGI DROP & REPLACE (Hapus data hari ini ke depan, lalu isi baru)
+      // ====================================================================
+      
+      // Hapus perkiraan cuaca lama untuk kecamatan ini
+      await tbl_HCIHistory.destroy({
+        where: {
+          id_kecamatan: id_kecamatan,
+          tanggal: {
+            [Op.gte]: today // Hapus data mulai hari ini ke depan
+          }
+        }
+      });
+
+      // Simpan 5/6 hari perkiraan cuaca yang baru
       for (const day of dailyResults) {
-        // Upsert data harian
-        await tbl_HCIHistory.upsert({
+        await tbl_HCIHistory.create({
           id_kecamatan: id_kecamatan,
           tanggal: day.date,
           temp: day.temp,
           clouds: day.clouds,
           rain: day.rain,
           wind: day.wind,
-          // NEW: Simpan Pressure dan Humidity
           pressure: day.pressure,
           humidity: day.humidity,
           visibility: day.visibility,
@@ -280,8 +300,9 @@ const calculateHCIForAllKecamatan = async (req, res) => {
           hci_kategori: day.kategori,
         });
       }
+      // ====================================================================
 
-      // Update data realtime di tabel kecamatan (opsional, jika perlu)
+      // Update data realtime di tabel kecamatan
       const todayData = dailyResults[0];
       if (todayData) {
         await kecamatan.update({
@@ -291,25 +312,24 @@ const calculateHCIForAllKecamatan = async (req, res) => {
         });
       }
 
-      console.log(`✅ ${kecamatan.nama_kecamatan} selesai`);
+      console.log(`✅ ${kecamatan.nama_kecamatan} updated`);
     }
 
-    // Hapus data lama (lebih dari 7 hari yang lalu) untuk menjaga ukuran database
+    // Pembersihan data kadaluarsa (misal data minggu lalu) agar database tidak penuh
     await tbl_HCIHistory.destroy({
       where: {
         tanggal: {
-          [Op.lt]: moment().subtract(7, 'days').format('YYYY-MM-DD')
+          [Op.lt]: moment().subtract(3, 'days').format('YYYY-MM-DD')
         }
       }
     });
 
     console.log('🗑️ Data HCIHistory lama dibersihkan');
     
-    // Handle response (bisa dipanggil via cron job atau HTTP request)
     if (res && typeof res.json === 'function') {
-        return res.status(200).json({ message: 'Perhitungan HCI 5 hari berhasil' });
+        return res.status(200).json({ message: 'Perhitungan HCI berhasil (Data diperbarui murni)' });
     } else {
-        return true; // Untuk cron job
+        return true; 
     }
 
   } catch (error) {

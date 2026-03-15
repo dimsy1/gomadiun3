@@ -20,10 +20,10 @@ function KeranjangPage({ showAlert, messageAlert, nameAlert }) {
   axios.defaults.withCredentials = true;
 
   // ✅ Fungsi ambil data keranjang
-  const getData = useCallback(async () => {
+const getData = useCallback(async () => {
     setLoading(true);
     try {
-      const userId = localStorage.getItem("userId"); // atau sesuai penyimpanan login kamu
+      const userId = localStorage.getItem("userId");
       const response = await axios.get(
         `${process.env.REACT_APP_BACKEND_API_URL}/api/keranjang/get_all/keranjang?userId=${userId}`,
         {
@@ -33,6 +33,7 @@ function KeranjangPage({ showAlert, messageAlert, nameAlert }) {
       if (response?.data?.success) {
         setDataKeranjang(response.data.data);
       } else {
+        setDataKeranjang([]);
         setMessage(response.data.message || "Keranjang kosong");
       }
     } catch (error) {
@@ -43,6 +44,7 @@ function KeranjangPage({ showAlert, messageAlert, nameAlert }) {
         showAlert();
         navigate("/");
       } else if (error.response?.status === 422) {
+        setDataKeranjang([]);
         setMessage(error.response.data.message || "Keranjang masih kosong");
       } else {
         setMessage("Gagal memuat data keranjang.");

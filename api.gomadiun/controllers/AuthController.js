@@ -63,13 +63,27 @@ const Login = async (req, res) => {
     );
 
     // ✅ REVISI: Menggunakan 'token_refresh', BUKAN 'refreshToken'
+    
+    // HOSTING------------------------------------------------------------------------------
+    // res.cookie("refreshtoken", token_refresh, {
+    //   httpOnly: true,
+    //   secure: true, // Wajib HTTPS agar tidak error Mixed Content/Cookie rejected
+    //   sameSite: "None", // Wajib None jika frontend & backend beda subdomain/domain
+    //   domain: ".tifpsdku.com", // Agar bisa dibaca subdomain
+    //   maxAge: 24 * 60 * 60 * 1000,
+    // });
+    // --------------------------------------------------------------------------------
+
+
+    // LOCAL-----------------------------------------------------------------------------
     res.cookie("refreshtoken", token_refresh, {
       httpOnly: true,
-      secure: true, // Wajib HTTPS agar tidak error Mixed Content/Cookie rejected
-      sameSite: "None", // Wajib None jika frontend & backend beda subdomain/domain
-      domain: ".tifpsdku.com", // Agar bisa dibaca subdomain
+      secure: isProduction, // Wajib HTTPS agar tidak error Mixed Content/Cookie rejected
+      sameSite: isProduction ? "None" : "Lax", // Wajib None jika frontend & backend beda subdomain/domain
+      domain: isProduction ? ".tifpsdku.com" : undefined, // Agar bisa dibaca subdomain
       maxAge: 24 * 60 * 60 * 1000,
     });
+    // ----------------------------------------------------------------------------------
 
     console.log('✅ Wisatawan Login Success. Cookie set.');
 
@@ -255,8 +269,18 @@ const logOut = async (req, res) => {
       return res.status(400).json({ msg: "Query role is required" });
     }
 
+    // 👇 1. Buat opsi cookie yang SAMA PERSIS dengan saat proses Login
+    const isProduction = process.env.NODE_ENV === "production";
+    const cookieOptions = {
+      httpOnly: true,
+      secure: isProduction,
+      sameSite: isProduction ? "None" : "Lax",
+      domain: isProduction ? ".tifpsdku.com" : undefined,
+      path: "/", // Pastikan path disertakan karena defaultnya '/'
+    };
+
     if (role === "wisatawan") {
-      const token = req.cookies?.refreshtoken;
+      const token = req.cookies?.refreshtoken; // Pastikan penulisan huruf besar/kecil sesuai dengan saat res.cookie
       if (!token) return res.status(401).json({ msg: "Akun belum login" });
 
       const user = await tbl_wisatawan.findOne({ where: { refresh_token: token } });
@@ -264,7 +288,8 @@ const logOut = async (req, res) => {
         await tbl_wisatawan.update({ refresh_token: null }, { where: { id_wisatawan: user.id_wisatawan } });
       }
       
-      res.clearCookie("refreshtoken", { path: "/", domain: ".tifpsdku.com" });
+      // 👇 2. Gunakan cookieOptions di sini
+      res.clearCookie("refreshtoken", cookieOptions);
       return res.status(200).json({ msg: "Anda telah berhasil logout" });
     }
 
@@ -277,7 +302,8 @@ const logOut = async (req, res) => {
          await tbl_Admin.update({ refresh_token: null }, { where: { id_admin: user.id_admin } });
       }
       
-      res.clearCookie("tokenadmin", { path: "/", domain: ".tifpsdku.com" });
+      // 👇 3. Gunakan cookieOptions di sini juga
+      res.clearCookie("tokenadmin", cookieOptions);
       return res.status(200).json({ msg: "Admin telah berhasil logout" });
     }
 

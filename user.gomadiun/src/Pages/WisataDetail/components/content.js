@@ -97,7 +97,8 @@ function ContentDetailDesaWisata({
           id_destinasi: wisata.id,
           jumlah: jumlahWisatawan,
           date: date,
-        }
+        },
+        { withCredentials: true }
       );
 
       if (response) {
@@ -108,7 +109,7 @@ function ContentDetailDesaWisata({
     } catch (error) {
       if (error.response?.status === 422) {
         messageAlert(error.response.data.message);
-        nameAlert("Warning ");
+        nameAlert("Warning");
         showAlert();
       } else if (error.response?.status === 401) {
         openModal();
@@ -351,8 +352,8 @@ function ContentDetailDesaWisata({
         
         {/* --- KOLOM KIRI: PANEL CUACA MODERN --- */}
         <div className="weather-card-modern">
-          <h3 style={{fontSize: "1.2rem", marginBottom: "1.5rem", fontWeight: "500"}}>
-            Cuaca destinasi dalam 5 hari ke depan
+          <h3 style={{fontSize: "1.2rem", marginBottom: "1.5rem", fontWeight: "500", textAlign: "center"}}>
+            Prediksi Cuaca
           </h3>
 
           {uniqueHciList && uniqueHciList.length > 0 ? (
@@ -423,7 +424,7 @@ function ContentDetailDesaWisata({
           )}
         </div>
 
-        {/* --- KOLOM KANAN: PANEL BOOKING MODERN --- */}
+{/* --- KOLOM KANAN: PANEL BOOKING MODERN --- */}
         <div className="booking-card-modern">
           
           {/* Baris Atas: Harga & Tanggal */}
@@ -448,7 +449,8 @@ function ContentDetailDesaWisata({
               <label>Pilih Tanggal Booking</label>
               <input
                 type="date"
-                value={moment(date).format("YYYY-MM-DD")}
+                // value={moment(date).format("YYYY-MM-DD")}
+                min={moment().format("YYYY-MM-DD")}
                 onChange={handleDateChange}
                 className="input-date-modern"
               />

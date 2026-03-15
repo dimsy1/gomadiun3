@@ -392,13 +392,13 @@ const get_detail_wisata = async (req, res) => {
         'tanggal', 
         'hci_score', 
         'hci_kategori',
-        'temp',       // Tambahkan ini
-        'rain',       // Tambahkan ini
-        'clouds',     // Tambahkan ini
-        'wind',       // Tambahkan ini
-        'pressure',   // Tambahkan ini
-        'humidity',   // Tambahkan ini
-        'visibility'  // Tambahkan ini
+        'temp',     
+        'rain',     
+        'clouds',   
+        'wind',     
+        'pressure', 
+        'humidity', 
+        'visibility'
       ],
       order: [['tanggal', 'ASC']], // Urutkan dari hari ini ke besok (ASC)
       limit: 6

@@ -38,6 +38,7 @@ app.use((req, res, next) => {
 app.use(cors({
   origin: [
     "https://gomadiun.tifpsdku.com",
+    "http://localhost:3003",
     "http://localhost:3002",
     "http://localhost:3001",
     "http://localhost:3000",
@@ -52,6 +53,7 @@ app.use(cors({
 app.options("*", cors({
   origin: [
     "https://gomadiun.tifpsdku.com",
+    "http://localhost:3003",
     "http://localhost:3002",
     "http://localhost:3001",
     "http://localhost:3000",

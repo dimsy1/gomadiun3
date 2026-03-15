@@ -9,6 +9,7 @@ import './modal/assets/styles.css'
 import axios from 'axios';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 
 axios.defaults.withCredentials = true;
@@ -23,3 +24,5 @@ root.render(
     <App />
   </BrowserRouter>
 );
+
+serviceWorkerRegistration.register();

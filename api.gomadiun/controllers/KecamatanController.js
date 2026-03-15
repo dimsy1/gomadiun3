@@ -58,7 +58,7 @@ const getAllKecamatan = async (req, res) => {
           model: tbl_HCIHistory,
           as: 'hci_history',
           attributes: [
-            'tanggal', 'temp', 'clouds', 'rain', 'wind', 'hci_score', 'hci_kategori'
+            'tanggal', 'temp', 'clouds', 'rain', 'wind', 'hci_score', 'hci_kategori', 'pressure', 'humidity', 'visibility',
           ],
           order: [['tanggal', 'ASC']]
         }
