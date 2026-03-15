@@ -1,7 +1,7 @@
 const db = require("../models");
 const tbl_Admin = db.tbl_Admin;
 const moment = require('moment-timezone');
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const saltRounds = 10;
 const jwt = require('jsonwebtoken');
 const { Op } = require('sequelize');

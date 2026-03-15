@@ -1,5 +1,3 @@
-//DITANYAKAN
-
 const db = require('../models');
 const tbl_DesaWisata = db.tbl_DesaWisata;
 const tbl_Paket_wisata = db.tbl_Paket_wisata;
@@ -7,7 +5,7 @@ const tbl_Wisata = db.tbl_Wisata;
 const tbl_Kuliner = db.tbl_Kuliner;
 const tbl_Menu = db.tbl_Menu;
 const tbl_Kamar = db.tbl_Kamar;
-const tbl_Penginapan = db.tbl_Penginapan;
+const tbl_penginapan = db.tbl_Penginapan;
 const tbl_Paket_homestay = db.tbl_Paket_homestay
 const tbl_announcement = db.tbl_announcement;
 const tbl_Admin = db.tbl_Admin;
@@ -21,7 +19,7 @@ const tbl_paket_homestay = require('../models/tbl_paket_homestay');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        const dest = "./uploads/img/banerInfo"; // All image files will be stored in the "uploads/img" directory
+        const dest = "./uploads/img/banerInfo"; 
         cb(null, dest);
     },
     filename: (req, file, cb) => {
@@ -84,7 +82,6 @@ const get_all_event = async (req, res) => {
             };
         }));
 
-
         const result = {
             success: true,
             message: "Sukses mendapatkan data",
@@ -114,7 +111,7 @@ const get_all_event_ByAdmin = async (req, res) => {
             return res.status(401).json({ msg: "Akun Belum Login!", token });
         }
 
-        const decoded = jwt.verify(token, process.env.JWT_REFRESH_SECRET);
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
         id_admin_login = decoded.id;
 
 
@@ -389,147 +386,78 @@ const delete_data_desawisata_byAdmin = async (req, res) => {
 
 const get_all_dashboard = async (req, res) => {
     try {
-
         const token = req.cookies.tokenadmin;
+        if (!token) return res.status(401).json({ msg: "Akun Belum Login!" });
 
-        if (!token) {
-            return res.status(401).json({ msg: "Akun Belum Login!", token });
-        }
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const id_admin_login = decoded.id;
 
-        const whereClause = {
-            [Op.and]: [
-                { status_verifikasi: "verified" },
-            ]
-        }
-
-
-        const desawisata = await tbl_DesaWisata.findAndCountAll({
-            where: whereClause,
+        // 1. Ambil info role admin yang login
+        const user_admin = await tbl_Admin.findOne({
+            attributes: ['id_admin', 'role'],
+            where: { id_admin: id_admin_login }
         });
 
-        if (desawisata.count === 0) {
-            return res.status(401).json({
-                success: false,
-                message: "Data Tidak Ditemukan",
-                data: null,
-            });
-        }
+        if (!user_admin) return res.status(404).json({ message: "Admin tidak ditemukan" });
 
-        const desawisata_terbanyak = await tbl_DesaWisata.findOne({
-            where: whereClause,
-            order: [[fn('MAX', col('total_pengunjung')), 'DESC']],
-        });
-
-        const wisata = await tbl_Wisata.findAndCountAll({
-            where: whereClause,
-        });
-
-        if (wisata.count === 0) {
-            return res.status(401).json({
-                success: false,
-                message: "Data Tidak Ditemukan",
-                data: null,
-            });
-        }
-
-        const wisata_terbanyak = await tbl_Wisata.findOne({
-            where: whereClause,
-            order: [[fn('MAX', col('total_pengunjung_destinasi')), 'DESC']],
-        });
-
-        const paket_wisata = await tbl_Paket_wisata.findAndCountAll({
-            where: whereClause,
-        });
-
-        if (paket_wisata.count === 0) {
-            return res.status(401).json({
-                success: false,
-                message: "Data Tidak Ditemukan",
-                data: null,
-            });
-        }
-
-        const paket_wisata_terbanyak = await tbl_Paket_wisata.findOne({
-            where: whereClause,
-            order: [[fn('MAX', col('total_pengunjung_paket_wisata')), 'DESC']],
-        });
-        
-        const penginapan = await tbl_Penginapan.findAndCountAll({
-            where: whereClause,
-        });
-
-        if (penginapan.count === 0) {
-            return res.status(401).json({
-                success: false,
-                message: "Data Tidak Ditemukan",
-                data: null,
-            });
-        }
-
-        const penginapan_terbanyak = await tbl_Penginapan.findOne({
-            where: whereClause,
-            order: [[fn('MAX', col('total_pengunjung_penginapan')), 'DESC']],
-        });
-
-
-        const kuliner = await tbl_Kuliner.findAndCountAll({
-            where: whereClause,
-        });
-
-        if (kuliner.count === 0) {
-            return res.status(401).json({
-                success: false,
-                message: "Data Tidak Ditemukan",
-                data: null,
-            });
-        }
-
-        const kuliner_terbanyak = await tbl_Kuliner.findOne({
-            where: whereClause,
-            order: [[fn('MAX', col('total_pengunjung_kuliner')), 'DESC']],
-        });
-
-
-        const result = {
-            data_desawisata: desawisata.rows.map((items) => ({
-                nama_desaWisata: items.nama_desaWisata,
-                total_pengunjung: items.total_pengunjung,
-            })),
-            data_wisata: wisata.rows.map((items) => ({
-                nama_destinasi: items.nama_destinasi,
-                total_pengunjung_destinasi: items.total_pengunjung_destinasi,
-            })),
-            data_paket_wisata: penginapan.rows.map((items) => ({
-                nama_paket_wisata: items.nama_paket_wisata,
-                total_pengunjung_paket_wisata: items.total_pengunjung_paket_wisata,
-            })),
-            data_penginapan: penginapan.rows.map((items) => ({
-                nama_penginapan: items.nama_penginapan,
-                total_pengunjung_penginapan: items.total_pengunjung_penginapan,
-            })),
-            data_kuliner: kuliner.rows.map((items) => ({
-                nama_kuliner: items.nama_kuliner,
-                total_pengunjung_kuliner: items.total_pengunjung_kuliner,
-            })),
-
-
-            data_desawisata_terbanyak: desawisata_terbanyak.total_pengunjung,
-            data_wisata_terbanyak: wisata_terbanyak.total_pengunjung_destinasi,
-            data_paket_wisata_terbanyak: paket_wisata_terbanyak.total_pengunjung_paket_wisata,
-            data_penginapan_terbanyak: penginapan_terbanyak.total_pengunjung_penginapan,
-            data_kuliner_terbanyak: kuliner_terbanyak.total_pengunjung_kuliner,
-
+        const buildWhereClause = () => {
+            let baseFilter = "WHERE kategori = :kat";
+            
+            if (user_admin.role === "admin pengelola" || user_admin.role === "admin industri") {
+                // Admin melihat data dimana dia adalah 'pemilik' dari transaksi tersebut
+                baseFilter += " AND id_admin_pemilik = :id_login";
+            } else if (user_admin.role === "user pengelola" || user_admin.role === "user industri") {
+                // User melihat data dimana dia adalah 'pelaku' transaksi tersebut
+                baseFilter += " AND id_admin = :id_login";
+            }
+            return baseFilter;
         };
 
-        res.status(200).json(result);
+        const getHistoryData = async (kat) => {
+            const sql = `
+                SELECT 
+                    nama_destinasi AS label, 
+                    COUNT(*) AS total_pengunjung
+                FROM tbl_history_transaksi 
+                ${buildWhereClause()}
+                GROUP BY nama_destinasi
+            `;
+
+            return await db.sequelize.query(sql, { 
+                replacements: { 
+                    kat: kat, 
+                    id_login: id_admin_login 
+                }, 
+                type: db.sequelize.QueryTypes.SELECT 
+            });
+        };
+
+        // Ambil data dari 4 kategori utama
+        const [desa, wisata, penginapan, kuliner] = await Promise.all([
+            getHistoryData('desaWisata'), 
+            getHistoryData('wisata'),
+            getHistoryData('penginapan'),
+            getHistoryData('kuliner')
+        ]);
+
+        const findMax = (data) => data.length > 0 ? Math.max(...data.map(o => o.total_pengunjung)) : 0;
+
+        res.status(200).json({
+            success: true,
+            data_desawisata: desa.map(i => ({ nama_desaWisata: i.label, total_pengunjung: i.total_pengunjung })),
+            data_wisata: wisata.map(i => ({ nama_destinasi: i.label, total_pengunjung_destinasi: i.total_pengunjung })),
+            data_penginapan: penginapan.map(i => ({ nama_penginapan: i.label, total_pengunjung_penginapan: i.total_pengunjung })),
+            data_kuliner: kuliner.map(i => ({ nama_kuliner: i.label, total_pengunjung_kuliner: i.total_pengunjung })),
+            
+            data_desawisata_terbanyak: findMax(desa),
+            data_wisata_terbanyak: findMax(wisata),
+            data_penginapan_terbanyak: findMax(penginapan),
+            data_kuliner_terbanyak: findMax(kuliner),
+        });
 
     } catch (error) {
-        console.log(error, 'Data Error');
-        res.status(500).json({
-            success: false,
-            message: 'Internal Server Error',
-            data: null
-        });
+        console.error("DASHBOARD ERROR:", error);
+        res.status(500).json({ success: false, message: 'Internal Server Error' });
     }
 };
 
@@ -557,7 +485,7 @@ const get_all_availability = async (req, res) => {
         }
 
         // Mendapatkan data berdasarkan id_admin_pengelola untuk setiap kategori
-        const penginapan = await tbl_Penginapan.findAndCountAll({
+        const penginapan = await tbl_penginapan.findAndCountAll({
             where: {
                 id_admin_pengelola: id_admin_login, // filter berdasarkan admin pengelola
             },
@@ -605,9 +533,6 @@ const get_all_availability = async (req, res) => {
         });
     }
 };
-
-
-
 
 module.exports = {
     get_all_event,

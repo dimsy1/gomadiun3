@@ -3,6 +3,7 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquare } from '@fortawesome/free-regular-svg-icons';
 import { faSquareCheck } from '@fortawesome/free-solid-svg-icons';
+
 const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -13,41 +14,42 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setMessage(null);
 
     try {
-      const response = await axios.post(`${process.env.REACT_APP_BACKEND_API_URL}/api/admin/login`, {
-        email: username,
-        password: password
-      })
-      if (response) {
-        try {
-          const data = await axios.get(`${process.env.REACT_APP_BACKEND_API_URL}/api/admin/me`)
-          if (data) {
-            window.location.reload();
-            console.log(data)
-          }
-        } catch (error) {
-          if (error.response.status === 401) {
-            console.log(error.response.data.msg);
-          }
-        }
+      const response = await axios.post(
+        `${process.env.REACT_APP_BACKEND_API_URL}/api/admin/login`, 
+        {
+            email: username,
+            password: password
+        },
+        { withCredentials: true } 
+      );
+
+      if (response.status === 200) {
+        // PERUBAHAN: Gunakan window.location agar browser menangkap navigasi sukses 
+        // setelah form submit, memicu prompt "Save Password"
+        window.location.replace("/dashboard");
       }
+
     } catch (error) {
-      if (error.response.status === 422) {
-        setMessage(error.response.data.message);
-        setLoading(false);
-        setTimeout(() => {
-            setMessage('');
-        }, 2000)
+      setLoading(false);
+      if (error.response) {
+        const msg = error.response.data.message || error.response.data.msg || "Login Gagal";
+        setMessage(msg);
+      } else {
+        setMessage("Server tidak terjangkau / Network Error");
       }
+      
+      setTimeout(() => {
+          setMessage(null);
+      }, 2000);
     }
-
   };
 
-  const handleshowPass = (e) => {
-    setisVisible(!isVisible)
+  const handleshowPass = () => {
+    setisVisible(!isVisible);
   };
-
 
   return (
     <div className="container-fluid page-body-wrapper full-page-wrapper">
@@ -56,36 +58,59 @@ const LoginPage = () => {
           <div className="col-lg-4 mx-auto">
 
             {errormessage && (
-              <div className={`alert alert-danger`} role="alert">
+              <div className="alert alert-danger" role="alert">
                 {errormessage}
               </div>
             )}
+            
             <div className="auth-form-light text-left py-5 px-4 px-sm-5">
               <h4>Hello Admin!</h4>
               <h6 className="font-weight-light">Sign in</h6>
-              <form onSubmit={handleLogin} className='pt-3'>
+              
+              {/* Tambahkan action dan method dummy agar browser mendeteksi ini form login asli */}
+              <form onSubmit={handleLogin} className='pt-3' action="#" method="POST">
                 <div className='form-group'>
-                  <input className='form-control form-control-lg' type="email" placeholder='Email' id="email" value={username} onChange={(e) => setUsername(e.target.value)} required />
+                  <input 
+                    className='form-control form-control-lg' 
+                    type="email" 
+                    name="email" // WAJIB: Agar browser tahu ini field username
+                    autoComplete="username" // WAJIB: Membantu Autofill Google
+                    placeholder='Email' 
+                    value={username} 
+                    onChange={(e) => setUsername(e.target.value)} 
+                    required 
+                  />
                 </div>
                 <div className='form-group'>
-                  <input className='form-control form-control-lg' type={`${isVisible ? 'text' : 'password'}`} placeholder='Password' id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                  <input 
+                    className='form-control form-control-lg' 
+                    type={isVisible ? 'text' : 'password'} 
+                    name="password" // WAJIB: Agar browser tahu ini field password
+                    autoComplete="current-password" // WAJIB: Membantu Save Password Google
+                    placeholder='Password' 
+                    value={password} 
+                    onChange={(e) => setPassword(e.target.value)} 
+                    required 
+                  />
                 </div>
 
-                <div className="font-weight-light" onClick={handleshowPass}>
-                  {isVisible ? (
-                    <FontAwesomeIcon icon={faSquareCheck} />
-                  ) : (
-                    <FontAwesomeIcon icon={faSquare} />
-                  )} <span>Tampilkan password</span>
+                <div className="font-weight-light mb-3" onClick={handleshowPass} style={{cursor: 'pointer'}}>
+                  {isVisible ? <FontAwesomeIcon icon={faSquareCheck} /> : <FontAwesomeIcon icon={faSquare} />}
+                  <span className="ml-2">Tampilkan password</span>
                 </div>
+
                 <div className="mt-4">
-                  <button type="submit" className="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN IN
-                    {loading ? (
-                      <svg className="spinner" viewBox="0 0 50 50">
-                        <circle className="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                  <button 
+                    type="submit" 
+                    id="login_button" // Tambahkan ID jika diperlukan
+                    className="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
+                    disabled={loading}
+                  >
+                    {loading ? 'LOADING...' : 'SIGN IN'}
+                    {loading && (
+                      <svg className="spinner ml-2" viewBox="0 0 50 50" style={{width: '20px', height: '20px', display: 'inline-block', verticalAlign: 'middle'}}>
+                        <circle className="path" cx="25" cy="25" r="20" fill="none" strokeWidth="5" stroke="#fff"></circle>
                       </svg>
-                    ) : (
-                      <div></div>
                     )}
                   </button>
                 </div>
